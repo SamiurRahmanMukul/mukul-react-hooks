@@ -13,13 +13,15 @@ pnpm add mukul-react-hooks  # using pnpm
 ## Collections of Custom React Hooks
 
 1. [useMediaQuery - Hooks 🚀](#1-usemediaquery)
+2. [useIsTopOfPage - Hooks 🚀](#2-useistopofpage)
 
 ### 1. useMediaQuery
 
-Custom React hook to detect whether the specified media query matches the current viewport. Example:
+Custom React hook to detect whether the specified media query matches the current viewport.
+Examples of usage are provided below:
 
 ```js
-"use client"; // if using Next.js to use `use client` directives
+"use client"; // if using Next.js to use `use client` directive
 
 import { useMediaQuery } from "mukul-react-hooks";
 
@@ -36,6 +38,29 @@ export default function MyComponents() {
 }
 ```
 
+### 2. useIsTopOfPage
+
+Custom React hook to determine if the user is at the top of the page.
+Examples of usage are provided below:
+
+```js
+"use client"; // if using Next.js to use `use client` directive
+
+import { useIsTopOfPage } from "mukul-react-hooks";
+
+export default function MyComponents() {
+  const isTopOfPage = useIsTopOfPage();
+
+  return (
+    <div style={{ backgroundColor: isTopOfPage ? "red" : "green" }}>
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia, molestiae quas vel
+      sint commodi repudiandae consequuntur voluptatum laborum numquam blanditiis harum quisquam
+      eius sed odit fugiat iusto fuga praesentium optio, eaque rerum!
+    </div>
+  );
+}
+```
+
 <p align="center">
-  <strong><> HAPPY DEVELOPMENT 😄 & I 💖 PROGRAMMING <></strong>
+  HAPPY DEVELOPMENT 😄 & I 💖 PROGRAMMING.
 </p>
