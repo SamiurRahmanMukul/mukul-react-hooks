@@ -17,5 +17,6 @@ module.exports = {
   },
   rules: {
     quotes: ["error", "double"],
+    "import/prefer-default-export": "off",
   },
 };
