@@ -1,0 +1,39 @@
+{
+  "name": "mukul-react-hooks",
+  "version": "1.0.0",
+  "description": "Introducing the 'mukul-react-hooks' NPM package, designed to streamline complex problem-solving within React web applications. Our custom hooks services offer an effortless solution for efficiently addressing intricate challenges. Experience seamless integration and enhanced functionality with 'mukul-react-hooks'.",
+  "main": "index.js",
+  "scripts": {
+    "lint": "eslint .",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SamiurRahmanMukul/mukul-react-hooks.git"
+  },
+  "keywords": [
+    "react",
+    "hooks",
+    "react-hooks",
+    "mukul-react-hooks"
+  ],
+  "author": "Md. Samiur Rahman Mukul",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/SamiurRahmanMukul/mukul-react-hooks/issues"
+  },
+  "homepage": "https://github.com/SamiurRahmanMukul/mukul-react-hooks#readme",
+  "dependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  },
+  "devDependencies": {
+    "eslint": "^8.57.0",
+    "eslint-config-airbnb": "^19.0.4",
+    "eslint-plugin-import": "^2.29.1",
+    "eslint-plugin-jsx-a11y": "^6.8.0",
+    "eslint-plugin-react": "^7.33.2",
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "rollup": "^4.12.0"
+  }
+}
