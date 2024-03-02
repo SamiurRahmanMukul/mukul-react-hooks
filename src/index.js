@@ -1,3 +1,4 @@
+import useIsTopOfPage from "./hooks/useIsTopOfPage";
 import useMediaQuery from "./hooks/useMediaQuery";
 
-export { useMediaQuery };
+export { useIsTopOfPage, useMediaQuery };
