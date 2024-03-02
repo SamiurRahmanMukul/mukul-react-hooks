@@ -7,9 +7,7 @@
   "scripts": {
     "dev": "rollup -c --environment NODE_ENV:development",
     "build": "rollup -c --environment NODE_ENV:production",
-    "pack": "npm run build && npm pack",
-    "lint": "eslint .",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "pack": "npm run build && npm pack"
   },
   "repository": {
     "type": "git",
@@ -28,18 +26,11 @@
   },
   "homepage": "https://github.com/SamiurRahmanMukul/mukul-react-hooks#readme",
   "dependencies": {
-    "prop-types": "^15.8.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   },
   "devDependencies": {
-    "eslint": "^8.57.0",
-    "eslint-config-airbnb": "^19.0.4",
-    "eslint-plugin-import": "^2.29.1",
-    "eslint-plugin-jsx-a11y": "^6.8.0",
-    "eslint-plugin-react": "^7.33.2",
-    "eslint-plugin-react-hooks": "^4.6.0",
-    "rollup": "^4.12.0",
-    "rollup-plugin-minification": "^0.2.0"
+    "@rollup/plugin-terser": "^0.4.4",
+    "rollup": "^4.12.0"
   }
 }
