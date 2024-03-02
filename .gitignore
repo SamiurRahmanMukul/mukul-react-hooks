@@ -6,6 +6,7 @@ bin-release/
 
 # Other files and folders
 .settings/
+.DS_Store
 
 # Executables
 *.swf
@@ -19,3 +20,7 @@ bin-release/
 
 # Ignore node_modules
 /node_modules
+
+# Ignore build_modules
+dist
+mukul-react-hooks*.tgz
