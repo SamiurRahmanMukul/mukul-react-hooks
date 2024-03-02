@@ -1,5 +1,3 @@
-# mukul-react-hooks - Collections of Custom React Hooks
-
 Introducing the `mukul-react-hooks` NPM package, designed to streamline complex problem-solving within React web applications. Our custom hooks services offer an effortless solution for efficiently addressing intricate challenges. Experience seamless integration and enhanced functionality with `mukul-react-hooks`.
 
 ## Installation
@@ -14,6 +12,7 @@ pnpm add mukul-react-hooks  # using pnpm
 
 1. [useMediaQuery - Hooks 🚀](#1-usemediaquery)
 2. [useIsTopOfPage - Hooks 🚀](#2-useistopofpage)
+3. [useFullScreen - Hooks 🚀](#3-usefullscreen)
 
 ### 1. useMediaQuery
 
@@ -57,6 +56,27 @@ export default function MyComponents() {
       sint commodi repudiandae consequuntur voluptatum laborum numquam blanditiis harum quisquam
       eius sed odit fugiat iusto fuga praesentium optio, eaque rerum!
     </div>
+  );
+}
+```
+
+### 3. useFullScreen
+
+A custom React hook to manage browser full screen functionality.
+Examples of usage are provided below:
+
+```js
+"use client"; // if using Next.js to use `use client` directive
+
+import { useFullScreen } from "mukul-react-hooks";
+
+export default function MyComponents() {
+  const { isFullScreen, toggleFullScreen } = useFullScreen();
+
+  return (
+    <button onClick={() => toggleFullScreen()}>
+      {isFullScreen ? "Exit Full Screen" : "Enter Full Screen"}
+    </button>
   );
 }
 ```
