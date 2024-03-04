@@ -10,17 +10,44 @@ npm i mukul-react-hooks
 
 ## Collections of Custom React Hooks
 
-1. [useMediaQuery - Hook 🚀](#1-usemediaquery)
-2. [useIsTopOfPage - Hook 🚀](#2-useistopofpage)
-3. [useFullScreen - Hook 🚀](#3-usefullscreen)
-4. [useUnsavedChangeAlert - Hook 🚀](#4-useunsavedchangealert)
+1. [useTimeout - Hook 🚀](#1-usetimeout)
+2. [useMediaQuery - Hook 🚀](#2-usemediaquery)
+3. [useIsTopOfPage - Hook 🚀](#3-useistopofpage)
+4. [useFullScreen - Hook 🚀](#4-usefullscreen)
+5. [useUnsavedChangeAlert - Hook 🚀](#5-useunsavedchangealert)
 
-### 1. useMediaQuery
+### 1. useTimeout
+
+Custom React hook to handle a timeout and execute a callback function after the specified delay.
+
+```js
+"use client";
+
+import { useTimeout } from "mukul-react-hooks";
+
+export default function MyComponents() {
+  const [timeout] = useTimeout(() => {
+    // your codeblocks
+  }, 3000); // define time with milliseconds
+
+  timeout();
+
+  return (
+    <div>
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia, molestiae quas vel
+      sint commodi repudiandae consequuntur voluptatum laborum numquam blanditiis harum quisquam
+      eius sed odit fugiat iusto fuga praesentium optio, eaque rerum!
+    </div>
+  );
+}
+```
+
+### 2. useMediaQuery
 
 Custom React hook to detect whether the specified media query matches the current viewport.
 
 ```js
-"use client"; // if using Next.js app router to use `use client` directive
+"use client";
 
 import { useMediaQuery } from "mukul-react-hooks";
 
@@ -37,12 +64,12 @@ export default function MyComponents() {
 }
 ```
 
-### 2. useIsTopOfPage
+### 3. useIsTopOfPage
 
 Custom React hook to determine if the user is at the top of the page.
 
 ```js
-"use client"; // if using Next.js app router to use `use client` directive
+"use client";
 
 import { useIsTopOfPage } from "mukul-react-hooks";
 
@@ -59,12 +86,12 @@ export default function MyComponents() {
 }
 ```
 
-### 3. useFullScreen
+### 4. useFullScreen
 
 A custom React hook to manage browser full screen functionality.
 
 ```js
-"use client"; // if using Next.js app router to use `use client` directive
+"use client";
 
 import { useFullScreen } from "mukul-react-hooks";
 
@@ -79,12 +106,12 @@ export default function MyComponents() {
 }
 ```
 
-### 4. useUnsavedChangeAlert
+### 5. useUnsavedChangeAlert
 
 A custom React hook that provides functionality for handling unsaved changes and displaying an alert when attempting to leave the page.
 
 ```js
-"use client"; // if using Next.js app router to use `use client` directive
+"use client";
 
 import { useUnsavedChangeAlert } from "mukul-react-hooks";
 import { useState } from "react";
