@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 /**
  * Custom React hook to determine if the user is at the top of the page.

@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 /**
  * A custom React hook to manage browser fullscreen functionality.
