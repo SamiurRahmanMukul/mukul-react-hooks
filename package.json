@@ -1,6 +1,6 @@
 {
   "name": "mukul-react-hooks",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "type": "module",
   "description": "Introducing the 'mukul-react-hooks' NPM package, designed to streamline complex problem-solving within React web applications. Our custom hooks services offer an effortless solution for efficiently addressing intricate challenges. Experience seamless integration and enhanced functionality with 'mukul-react-hooks'.",
   "main": "dist/index.js",

@@ -15,6 +15,7 @@ npm i mukul-react-hooks
 3. [useIsTopOfPage - Hook 🚀](#3-useistopofpage)
 4. [useFullScreen - Hook 🚀](#4-usefullscreen)
 5. [useUnsavedChangeAlert - Hook 🚀](#5-useunsavedchangealert)
+6. [Library Functions 🚀](#collections-of-javascript-library-funcations)
 
 ### 1. useTimeout
 
@@ -127,6 +128,63 @@ export default function MyComponents() {
       Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia, molestiae quas vel
       sint commodi repudiandae consequuntur voluptatum laborum numquam blanditiis harum quisquam
       eius sed odit fugiat iusto fuga praesentium optio, eaque rerum!
+    </div>
+  );
+}
+```
+
+## Collections of JavaScript Library Funcations
+
+```js
+"use client";
+
+import { lib } from "mukul-react-hooks";
+
+const {
+  arrayToCommaSeparatedText,
+  asyncDelay,
+  downloadString,
+  internationalCurrencyConvert,
+  isEmptyObject,
+  isValidEmail,
+  numberFormatWithCommas,
+  randomColor,
+  transformString,
+  truncateStringEnd,
+  truncateStringMiddle,
+  unixToDateTime,
+  waitSomeMoment,
+} = lib;
+
+export default async function MyComponents() {
+  console.log(arrayToCommaSeparatedText(["a", "b", "c"])); // a, b, c
+  console.log(internationalCurrencyConvert(1000000)); // 1 M
+  console.log(isEmptyObject({})); // true
+  console.log(isValidEmail("example@mail.com")); // true
+  console.log(numberFormatWithCommas(1000000)); // 1,000,000
+  console.log(randomColor()); // #ff0000 --> generated random color in hex format
+  console.log(transformString("My Name Is Mukul")); // my_name_is_mukul
+  console.log(truncateStringEnd("My Name Is Mukul", 10)); // My Name Is...
+  console.log(truncateStringMiddle("My Name Is Mukul", 10, "...")); // My ...ukul
+  console.log(unixToDateTime(1668300000)); // 20 Jan 1970, 1:25 PM
+
+  // Asynchronous Components or JavaScript functions delay
+  asyncDelay(3000); // define time with milliseconds
+
+  // Any functions inner code next line exexution delay
+  function example() {
+    console.log("exuction start");
+    waitSomeMoment(3000); // define time with milliseconds
+    console.log("delay exexution after 3000 milliseconds");
+  }
+
+  return (
+    <div>
+      {/* download any string with your prefarable extention:
+          --> 1st parameter recived your string, 
+          --> 2nd parameter recived file name and 
+          --> 3rd parameter recived file extention */}
+      <button onClick={() => downloadString("My Name Is Mukul", "mukul", "txt")}>Download</button>
     </div>
   );
 }
