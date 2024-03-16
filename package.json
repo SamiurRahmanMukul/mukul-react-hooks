@@ -1,6 +1,6 @@
 {
   "name": "mukul-react-hooks",
-  "version": "1.0.2",
+  "version": "1.1.0",
   "type": "module",
   "description": "Introducing the 'mukul-react-hooks' NPM package, designed to streamline complex problem-solving within React web applications. Our custom hooks services offer an effortless solution for efficiently addressing intricate challenges. Experience seamless integration and enhanced functionality with 'mukul-react-hooks'.",
   "main": "dist/index.js",
@@ -16,10 +16,11 @@
   "keywords": [
     "react",
     "hooks",
+    "frontend",
     "react-hooks",
     "mukul-react-hooks"
   ],
-  "author": "Md. Samiur Rahman Mukul",
+  "author": "Md. Samiur Rahman (Mukul)",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/SamiurRahmanMukul/mukul-react-hooks/issues"
