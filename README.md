@@ -135,6 +135,8 @@ export default function MyComponents() {
 
 ## 6. useLibrary
 
+A custom React hook integrating JavaScript library functions tailored specifically for React developers.
+
 ```js
 "use client";
 
@@ -155,7 +157,7 @@ export default async function MyComponents() {
     truncateStringMiddle,
     unixToDateTime,
     waitSomeMoment,
-  } = useLibrary;
+  } = useLibrary();
 
   // Outputs
   console.log(arrayToCommaSeparatedText(["a", "b", "c"])); // a, b, c
