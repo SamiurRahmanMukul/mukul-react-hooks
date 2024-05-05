@@ -15,7 +15,7 @@ npm i mukul-react-hooks
 3. [useIsTopOfPage - Hook 🚀](#3-useistopofpage)
 4. [useFullScreen - Hook 🚀](#4-usefullscreen)
 5. [useUnsavedChangeAlert - Hook 🚀](#5-useunsavedchangealert)
-6. [Library Functions 🚀](#collections-of-javascript-library-funcations)
+6. [useLibrary - Hook 🚀](#6-uselibrary)
 
 ### 1. useTimeout
 
@@ -133,30 +133,31 @@ export default function MyComponents() {
 }
 ```
 
-## Collections of JavaScript Library Funcations
+## 6. useLibrary
 
 ```js
 "use client";
 
-import { lib } from "mukul-react-hooks";
-
-const {
-  arrayToCommaSeparatedText,
-  asyncDelay,
-  downloadString,
-  internationalCurrencyConvert,
-  isEmptyObject,
-  isValidEmail,
-  numberFormatWithCommas,
-  randomColor,
-  transformString,
-  truncateStringEnd,
-  truncateStringMiddle,
-  unixToDateTime,
-  waitSomeMoment,
-} = lib;
+import { useLibrary } from "mukul-react-hooks";
 
 export default async function MyComponents() {
+  const {
+    arrayToCommaSeparatedText,
+    asyncDelay,
+    downloadString,
+    internationalCurrencyConvert,
+    isEmptyObject,
+    isValidEmail,
+    numberFormatWithCommas,
+    randomColor,
+    transformString,
+    truncateStringEnd,
+    truncateStringMiddle,
+    unixToDateTime,
+    waitSomeMoment,
+  } = useLibrary;
+
+  // Outputs
   console.log(arrayToCommaSeparatedText(["a", "b", "c"])); // a, b, c
   console.log(internationalCurrencyConvert(1000000)); // 1 M
   console.log(isEmptyObject({})); // true
@@ -180,10 +181,12 @@ export default async function MyComponents() {
 
   return (
     <div>
-      {/* download any string with your prefarable extention:
+      {/* 
+          Download any string with your prefarable extention:
           --> 1st parameter recived your string, 
           --> 2nd parameter recived file name and 
-          --> 3rd parameter recived file extention */}
+          --> 3rd parameter recived file extention
+      */}
       <button onClick={() => downloadString("My Name Is Mukul", "mukul", "txt")}>Download</button>
     </div>
   );
@@ -191,5 +194,5 @@ export default async function MyComponents() {
 ```
 
 <p align="center">
-  HAPPY DEVELOPMENT 😄😊🙂
+  HAPPY DEVELOPMENT 🙂
 </p>
