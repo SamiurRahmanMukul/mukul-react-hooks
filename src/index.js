@@ -1,15 +1,8 @@
 import useFullScreen from "./hooks/useFullScreen";
 import useIsTopOfPage from "./hooks/useIsTopOfPage";
-import useLibrary from "./hooks/useLibrary";
 import useMediaQuery from "./hooks/useMediaQuery";
 import useTimeout from "./hooks/useTimeout";
 import useUnsavedChangeAlert from "./hooks/useUnsavedChangeAlert";
+import * as lib from "./library/index";
 
-export {
-  useFullScreen,
-  useIsTopOfPage,
-  useLibrary,
-  useMediaQuery,
-  useTimeout,
-  useUnsavedChangeAlert,
-};
+export { lib, useFullScreen, useIsTopOfPage, useMediaQuery, useTimeout, useUnsavedChangeAlert };
