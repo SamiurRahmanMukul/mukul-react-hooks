@@ -15,7 +15,6 @@ npm i mukul-react-hooks
 3. [useIsTopOfPage - Hook 🚀](#3-useistopofpage)
 4. [useFullScreen - Hook 🚀](#4-usefullscreen)
 5. [useUnsavedChangeAlert - Hook 🚀](#5-useunsavedchangealert)
-6. [useLibrary - Hook 🚀](#6-uselibrary)
 
 ### 1. useTimeout
 
@@ -97,11 +96,11 @@ A custom React hook to manage browser full screen functionality.
 import { useFullScreen } from "mukul-react-hooks";
 
 export default function MyComponents() {
-  const { isFullScreen, toggleFullScreen } = useFullScreen();
+  const { isFullscreen, toggleFullscreen } = useFullScreen();
 
   return (
-    <button onClick={() => toggleFullScreen()}>
-      {isFullScreen ? "Exit Full Screen" : "Enter Full Screen"}
+    <button onClick={() => toggleFullscreen()}>
+      {isFullscreen ? "Exit Full Screen" : "Enter Full Screen"}
     </button>
   );
 }
@@ -133,32 +132,33 @@ export default function MyComponents() {
 }
 ```
 
-## 6. useLibrary
+## JavaScript Library Functions
 
-A custom React hook integrating JavaScript library functions tailored specifically for React developers.
+A collections JavaScript library functions tailored specifically for React developers.
 
 ```js
 "use client";
 
-import { useLibrary } from "mukul-react-hooks";
+import { lib } from "mukul-react-hooks";
+
+const {
+  arrayToCommaSeparatedText,
+  asyncDelay,
+  downloadString,
+  internationalCurrencyConvert,
+  isEmptyObject,
+  isValidEmail,
+  numberFormatWithCommas,
+  randomColor,
+  transformString,
+  truncateStringEnd,
+  truncateStringMiddle,
+  unixToDateTime,
+  waitSomeMoment,
+  generateUniqueId,
+} = lib;
 
 export default async function MyComponents() {
-  const {
-    arrayToCommaSeparatedText,
-    asyncDelay,
-    downloadString,
-    internationalCurrencyConvert,
-    isEmptyObject,
-    isValidEmail,
-    numberFormatWithCommas,
-    randomColor,
-    transformString,
-    truncateStringEnd,
-    truncateStringMiddle,
-    unixToDateTime,
-    waitSomeMoment,
-  } = useLibrary();
-
   // Outputs
   console.log(arrayToCommaSeparatedText(["a", "b", "c"])); // a, b, c
   console.log(internationalCurrencyConvert(1000000)); // 1 M
@@ -170,6 +170,7 @@ export default async function MyComponents() {
   console.log(truncateStringEnd("My Name Is Mukul", 10)); // My Name Is...
   console.log(truncateStringMiddle("My Name Is Mukul", 10, "...")); // My ...ukul
   console.log(unixToDateTime(1668300000)); // 20 Jan 1970, 1:25 PM
+  console.log(generateUniqueId()); // uuid-1718966248675-0.b04c1e945abf
 
   // Asynchronous Components or JavaScript functions delay
   asyncDelay(3000); // define time with milliseconds
