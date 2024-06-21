@@ -21,13 +21,9 @@
     "react custom hooks",
     "custom hooks",
     "javascript",
+    "javascript library",
     "web development",
-    "mukul-react-hooks",
-    "useFullScreen",
-    "useIsTopOfPage",
-    "useMediaQuery",
-    "useTimeout",
-    "useUnsavedChangeAlert"
+    "mukul-react-hooks"
   ],
   "author": "Md. Samiur Rahman (Mukul)",
   "license": "MIT",
