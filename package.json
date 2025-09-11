@@ -1,12 +1,28 @@
 {
   "name": "mukul-react-hooks",
-  "version": "1.1.5",
+  "version": "2.0.0",
   "type": "module",
   "description": "Introducing the 'mukul-react-hooks' NPM package, designed to streamline complex problem-solving within React web applications. Our custom hooks services offer an effortless solution for efficiently addressing intricate challenges. Experience seamless integration and enhanced functionality with 'mukul-react-hooks'.",
   "main": "dist/index.js",
+  "module": "dist/index.esm.js",
+  "types": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.esm.js",
+      "require": "./dist/index.js"
+    }
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE.txt"
+  ],
   "scripts": {
     "dev": "rollup -c --environment NODE_ENV:development",
     "build": "rollup -c --environment NODE_ENV:production",
+    "type-check": "tsc --noEmit",
+    "build:types": "tsc --emitDeclarationOnly",
     "pack": "npm run build && npm pack"
   },
   "repository": {
@@ -21,7 +37,9 @@
     "react custom hooks",
     "custom hooks",
     "javascript",
+    "typescript",
     "javascript library",
+    "typescript library",
     "web development",
     "mukul-react-hooks"
   ],
@@ -31,12 +49,18 @@
     "url": "https://github.com/SamiurRahmanMukul/mukul-react-hooks/issues"
   },
   "homepage": "https://github.com/SamiurRahmanMukul/mukul-react-hooks#readme",
-  "dependencies": {
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+  "peerDependencies": {
+    "react": ">=16.8.0",
+    "react-dom": ">=16.8.0"
   },
+  "dependencies": {},
   "devDependencies": {
     "rollup": "^4.12.0",
-    "rollup-plugin-minification": "^0.2.0"
+    "rollup-plugin-minification": "^0.2.0",
+    "@rollup/plugin-typescript": "^11.1.6",
+    "@types/react": "^18.2.0",
+    "@types/react-dom": "^18.2.0",
+    "typescript": "^5.3.0",
+    "tslib": "^2.6.0"
   }
 }

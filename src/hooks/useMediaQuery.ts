@@ -5,8 +5,8 @@ import { useEffect, useState } from "react";
  * @param {string} query - The media query string to match against.
  * @returns {boolean} - Boolean indicating whether the media query matches the viewport.
  */
-function useMediaQuery(query) {
-  const [matches, setMatches] = useState(false);
+function useMediaQuery(query: string): boolean {
+  const [matches, setMatches] = useState<boolean>(false);
 
   useEffect(() => {
     const media = window.matchMedia(query);
@@ -15,7 +15,7 @@ function useMediaQuery(query) {
       setMatches(media.matches);
     }
 
-    const listener = () => setMatches(media.matches);
+    const listener = (): void => setMatches(media.matches);
     window.addEventListener("resize", listener);
 
     return () => window.removeEventListener("resize", listener);

@@ -4,11 +4,11 @@ import { useEffect, useState } from "react";
  * Custom React hook to determine if the user is at the top of the page.
  * @returns {boolean} Returns true if the user is at the top of the page, otherwise false.
  */
-function useIsTopOfPage() {
-  const [isTopOfPage, setIsTopOfPage] = useState(true);
+function useIsTopOfPage(): boolean {
+  const [isTopOfPage, setIsTopOfPage] = useState<boolean>(true);
 
   useEffect(() => {
-    const handleScroll = () => {
+    const handleScroll = (): void => {
       if (window.scrollY === 0) {
         setIsTopOfPage(true);
       } else {

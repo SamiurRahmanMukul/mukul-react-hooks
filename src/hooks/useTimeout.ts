@@ -5,20 +5,27 @@ import { useCallback, useEffect, useMemo, useRef } from "react";
  *
  * @param {Function} callback - The callback function to be executed after the delay.
  * @param {number} delay - The delay in milliseconds before the callback is executed.
- * @returns {Function} A memoized function that can be called to trigger the timeout.
+ * @returns {Function[]} A memoized array containing the function that can be called to trigger the timeout.
  */
-function useTimeout(callback, delay) {
-  const timeoutRef = useRef();
-  const callbackRef = useRef(callback);
+function useTimeout<T = any>(callback: (args?: T) => void, delay: number): [(args?: T) => void] {
+  const timeoutRef = useRef<number | null>(null);
+  const callbackRef = useRef<(args?: T) => void>(callback);
 
   useEffect(() => {
     callbackRef.current = callback;
   }, [callback]);
 
-  useEffect(() => () => clearTimeout(timeoutRef.current), []);
+  useEffect(
+    () => () => {
+      if (timeoutRef.current) {
+        clearTimeout(timeoutRef.current);
+      }
+    },
+    []
+  );
 
   const memoizedCallback = useCallback(
-    (args) => {
+    (args?: T): void => {
       if (timeoutRef.current) {
         clearTimeout(timeoutRef.current);
       }
@@ -28,7 +35,7 @@ function useTimeout(callback, delay) {
         callbackRef.current?.(args);
       }, delay);
     },
-    [delay, timeoutRef, callbackRef]
+    [delay]
   );
 
   return useMemo(() => [memoizedCallback], [memoizedCallback]);

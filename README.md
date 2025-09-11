@@ -2,6 +2,16 @@
 
 Introducing the `mukul-react-hooks` NPM package, designed to streamline complex problem-solving within React web applications. Our custom hooks services offer an effortless solution for efficiently addressing intricate challenges. Experience seamless integration and enhanced functionality with `mukul-react-hooks`.
 
+## ✨ TypeScript Support
+
+This package now includes full **TypeScript support** with proper type definitions! You can use it in both JavaScript and TypeScript projects seamlessly.
+
+- 🔷 **Full TypeScript compatibility** with type definitions included
+- 🔷 **JavaScript support** maintained for existing projects
+- 🔷 **IntelliSense** and autocompletion in modern IDEs
+- 🔷 **Type safety** for all hooks and utility functions
+- 🔷 **Zero breaking changes** for existing JavaScript users
+
 ## Installation
 
 ```sh
@@ -19,6 +29,8 @@ npm i mukul-react-hooks
 ### 1. useTimeout
 
 Custom React hook to handle a timeout and execute a callback function after the specified delay.
+
+**JavaScript:**
 
 ```js
 "use client";
@@ -39,6 +51,24 @@ export default function MyComponents() {
       eius sed odit fugiat iusto fuga praesentium optio, eaque rerum!
     </div>
   );
+}
+```
+
+**TypeScript:**
+
+```tsx
+"use client";
+
+import { useTimeout } from "mukul-react-hooks";
+
+export default function MyComponents(): JSX.Element {
+  const [timeout] = useTimeout<string>((args?: string) => {
+    console.log("Timeout executed with args:", args);
+  }, 3000);
+
+  timeout("Hello TypeScript!");
+
+  return <div>Lorem ipsum dolor sit amet consectetur adipisicing elit.</div>;
 }
 ```
 
@@ -132,9 +162,11 @@ export default function MyComponents() {
 }
 ```
 
-## JavaScript Library Functions
+## JavaScript/TypeScript Library Functions
 
-A collections JavaScript library functions tailored specifically for React developers.
+A collection of utility functions with full TypeScript support, tailored specifically for React developers.
+
+**JavaScript:**
 
 ```js
 "use client";
@@ -173,24 +205,64 @@ export default async function MyComponents() {
   console.log(generateUniqueId()); // uuid-1718966248675-0.b04c1e945abf
 
   // Asynchronous Components or JavaScript functions delay
-  asyncDelay(3000); // define time with milliseconds
-
-  // Any functions inner code next line exexution delay
-  function example() {
-    console.log("exuction start");
-    waitSomeMoment(3000); // define time with milliseconds
-    console.log("delay exexution after 3000 milliseconds");
-  }
+  await asyncDelay(3000); // define time with milliseconds
 
   return (
     <div>
-      {/* 
-          Download any string with your prefarable extention:
-          --> 1st parameter recived your string, 
-          --> 2nd parameter recived file name and 
-          --> 3rd parameter recived file extention
-      */}
       <button onClick={() => downloadString("My Name Is Mukul", "mukul", "txt")}>Download</button>
+    </div>
+  );
+}
+```
+
+**TypeScript:**
+
+```tsx
+"use client";
+
+import { lib } from "mukul-react-hooks";
+
+const {
+  arrayToCommaSeparatedText,
+  asyncDelay,
+  downloadString,
+  internationalCurrencyConvert,
+  isEmptyObject,
+  isValidEmail,
+  numberFormatWithCommas,
+  randomColor,
+  transformString,
+  truncateStringEnd,
+  truncateStringMiddle,
+  unixToDateTime,
+  waitSomeMoment,
+  generateUniqueId,
+} = lib;
+
+export default async function MyComponents(): Promise<JSX.Element> {
+  // Type-safe function calls with proper return types
+  const commaSeparated: string = arrayToCommaSeparatedText(["a", "b", "c"]); // a, b, c
+  const currency: string | number = internationalCurrencyConvert(1000000); // 1 M
+  const isEmpty: boolean = isEmptyObject({}); // true
+  const emailValid: boolean = isValidEmail("example@mail.com"); // true
+  const formatted: string = numberFormatWithCommas(1000000); // 1,000,000
+  const color: string = randomColor(); // #ff0000 --> generated random color in hex format
+  const transformed: string = transformString("My Name Is Mukul"); // my_name_is_mukul
+  const truncated: string = truncateStringEnd("My Name Is Mukul", 10); // My Name Is...
+  const truncatedMiddle: string = truncateStringMiddle("My Name Is Mukul", 10, "..."); // My ...ukul
+  const dateTime: string = unixToDateTime(1668300000); // 20 Jan 1970, 1:25 PM
+  const uniqueId: string = generateUniqueId(); // uuid-1718966248675-0.b04c1e945abf
+
+  // Async delay with proper Promise handling
+  await asyncDelay(3000);
+
+  const handleDownload = (): void => {
+    downloadString("My Name Is Mukul", "mukul", "txt");
+  };
+
+  return (
+    <div>
+      <button onClick={handleDownload}>Download</button>
     </div>
   );
 }

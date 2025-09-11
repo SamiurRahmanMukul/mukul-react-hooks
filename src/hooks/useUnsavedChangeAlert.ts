@@ -6,12 +6,14 @@ import { useEffect } from "react";
  * @param {boolean} hasUnsavedChanges - Indicates whether there are unsaved changes.
  * @returns {void}
  */
-const useUnsavedChangeAlert = (hasUnsavedChanges) => {
+const useUnsavedChangeAlert = (hasUnsavedChanges: boolean): void => {
   useEffect(() => {
-    const handleBeforeUnload = (event) => {
+    const handleBeforeUnload = (event: BeforeUnloadEvent): string | undefined => {
       if (hasUnsavedChanges) {
         event.preventDefault();
-        return "You have unsaved changes. Are you sure you want to leave?";
+        const message = "You have unsaved changes. Are you sure you want to leave?";
+        event.returnValue = message; // For legacy browsers
+        return message;
       }
     };
 

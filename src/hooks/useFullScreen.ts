@@ -1,40 +1,65 @@
 import { useCallback, useEffect, useState } from "react";
 
+// TypeScript interfaces for browser APIs
+interface DocumentWithFullscreen extends Document {
+  mozFullScreenElement?: Element | null;
+  webkitFullscreenElement?: Element | null;
+  msFullscreenElement?: Element | null;
+  mozCancelFullScreen?: () => Promise<void>;
+  webkitExitFullscreen?: () => Promise<void>;
+  msExitFullscreen?: () => Promise<void>;
+}
+
+interface DocumentElementWithFullscreen extends Element {
+  mozRequestFullScreen?: () => Promise<void>;
+  webkitRequestFullscreen?: () => Promise<void>;
+  msRequestFullscreen?: () => Promise<void>;
+}
+
+interface UseFullscreenReturn {
+  isFullscreen: boolean;
+  toggleFullscreen: () => Promise<void>;
+}
+
 // Helper functions to handle vendor-prefixed full screen methods
-const requestFullscreen = () => {
-  if (document.documentElement.requestFullscreen) {
-    return document.documentElement.requestFullscreen();
+const requestFullscreen = (): Promise<void> => {
+  const element = document.documentElement as DocumentElementWithFullscreen;
+
+  if (element.requestFullscreen) {
+    return element.requestFullscreen();
   }
-  if (document.documentElement.mozRequestFullScreen) {
+  if (element.mozRequestFullScreen) {
     // Firefox
-    return document.documentElement.mozRequestFullScreen();
+    return element.mozRequestFullScreen();
   }
-  if (document.documentElement.webkitRequestFullscreen) {
+  if (element.webkitRequestFullscreen) {
     // Chrome, Safari and Opera
-    return document.documentElement.webkitRequestFullscreen();
+    return element.webkitRequestFullscreen();
   }
-  if (document.documentElement.msRequestFullscreen) {
+  if (element.msRequestFullscreen) {
     // IE/Edge
-    return document.documentElement.msRequestFullscreen();
+    return element.msRequestFullscreen();
   }
   return Promise.reject(new Error("Fullscreen API is not supported!"));
 };
 
-const exitFullscreen = () => {
-  if (document.exitFullscreen) {
-    return document.exitFullscreen();
+const exitFullscreen = (): Promise<void> => {
+  const doc = document as DocumentWithFullscreen;
+
+  if (doc.exitFullscreen) {
+    return doc.exitFullscreen();
   }
-  if (document.mozCancelFullScreen) {
+  if (doc.mozCancelFullScreen) {
     // Firefox
-    return document.mozCancelFullScreen();
+    return doc.mozCancelFullScreen();
   }
-  if (document.webkitExitFullscreen) {
+  if (doc.webkitExitFullscreen) {
     // Chrome, Safari and Opera
-    return document.webkitExitFullscreen();
+    return doc.webkitExitFullscreen();
   }
-  if (document.msExitFullscreen) {
+  if (doc.msExitFullscreen) {
     // IE/Edge
-    return document.msExitFullscreen();
+    return doc.msExitFullscreen();
   }
   return Promise.reject(new Error("Fullscreen API is not supported!"));
 };
@@ -49,19 +74,20 @@ const exitFullscreen = () => {
  * It adds event listeners for the 'fullscreenchange', 'mozfullscreenchange', 'webkitfullscreenchange',
  * and 'msfullscreenchange' events and removes them when the component unmounts.
  *
- * @return {Object} An object with the following properties:
+ * @return {UseFullscreenReturn} An object with the following properties:
  *   - `isFullscreen` (boolean): Indicates whether the browser is currently in fullscreen mode.
  *   - `toggleFullscreen` (function): Toggles the fullscreen mode on and off.
  */
-const useFullscreen = () => {
-  const [isFullscreen, setIsFullscreen] = useState(false);
+const useFullscreen = (): UseFullscreenReturn => {
+  const [isFullscreen, setIsFullscreen] = useState<boolean>(false);
 
   const handleChange = useCallback(() => {
+    const doc = document as DocumentWithFullscreen;
     setIsFullscreen(
-      document.fullscreenElement != null ||
-        document.mozFullScreenElement != null ||
-        document.webkitFullscreenElement != null ||
-        document.msFullscreenElement != null
+      doc.fullscreenElement != null ||
+        doc.mozFullScreenElement != null ||
+        doc.webkitFullscreenElement != null ||
+        doc.msFullscreenElement != null
     );
   }, []);
 
@@ -79,7 +105,7 @@ const useFullscreen = () => {
     };
   }, [handleChange]);
 
-  const toggleFullscreen = useCallback(() => {
+  const toggleFullscreen = useCallback((): Promise<void> => {
     if (isFullscreen) {
       return exitFullscreen();
     }
