@@ -2,10 +2,11 @@
   "name": "mukul-react-hooks",
   "version": "2.0.0",
   "type": "module",
-  "description": "Introducing the 'mukul-react-hooks' NPM package, designed to streamline complex problem-solving within React web applications. Our custom hooks services offer an effortless solution for efficiently addressing intricate challenges. Experience seamless integration and enhanced functionality with 'mukul-react-hooks'.",
+  "description": "A comprehensive collection of custom React hooks for modern web development. Includes utilities for fullscreen management, media queries, timeouts, scroll detection, and unsaved change alerts. Built with TypeScript for type safety and optimized for tree-shaking.",
   "main": "dist/index.js",
   "module": "dist/index.esm.js",
   "types": "dist/index.d.ts",
+  "sideEffects": false,
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",
@@ -16,7 +17,8 @@
   "files": [
     "dist",
     "README.md",
-    "LICENSE.txt"
+    "LICENSE.txt",
+    "CHANGELOG.md"
   ],
   "scripts": {
     "dev": "rollup -c --environment NODE_ENV:development",
@@ -24,9 +26,16 @@
     "type-check": "tsc --noEmit",
     "build:types": "tsc --emitDeclarationOnly",
     "pack": "npm run build && npm pack",
+    "test:install": "cd test-app && npm install",
     "test:dev": "cd test-app && npm run dev",
     "test:build": "cd test-app && npm run build",
-    "test:install": "cd test-app && npm install"
+    "test:lint": "cd test-app && npm run lint",
+    "test:preview": "cd test-app && npm run preview",
+    "prepublishOnly": "npm run build",
+    "postpublish": "echo 'Package published successfully!'",
+    "audit": "npm audit --audit-level=moderate",
+    "outdated": "npm outdated",
+    "clean": "rm -rf dist node_modules"
   },
   "repository": {
     "type": "git",
@@ -35,23 +44,57 @@
   "keywords": [
     "react",
     "hooks",
+    "react-hooks",
+    "custom-hooks",
     "frontend",
-    "react hooks",
-    "react custom hooks",
-    "custom hooks",
+    "ui",
     "javascript",
     "typescript",
-    "javascript library",
-    "typescript library",
-    "web development",
+    "web-development",
+    "react-library",
+    "hooks-library",
+    "utility-hooks",
+    "react-utilities",
+    "frontend-tools",
+    "web-components",
+    "react-components",
+    "fullscreen",
+    "media-query",
+    "timeout",
+    "unsaved-changes",
+    "scroll-detection",
     "mukul-react-hooks"
   ],
-  "author": "Md. Samiur Rahman (Mukul)",
+  "author": {
+    "name": "Md. Samiur Rahman (Mukul)",
+    "email": "contact@srmukul.com",
+    "url": "https://srmukul.com"
+  },
+  "contributors": [
+    {
+      "name": "Md. Samiur Rahman (Mukul)",
+      "email": "contact@srmukul.com",
+      "url": "https://github.com/SamiurRahmanMukul"
+    }
+  ],
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/SamiurRahmanMukul/mukul-react-hooks/issues"
   },
   "homepage": "https://github.com/SamiurRahmanMukul/mukul-react-hooks#readme",
+  "funding": {
+    "type": "github",
+    "url": "https://github.com/sponsors/SamiurRahmanMukul"
+  },
+  "engines": {
+    "node": ">=16.0.0",
+    "npm": ">=8.0.0"
+  },
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/",
+    "provenance": true
+  },
   "peerDependencies": {
     "react": ">=16.8.0",
     "react-dom": ">=16.8.0"

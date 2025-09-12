@@ -94,9 +94,9 @@ function HomePage() {
     <div>
       <h1>Mukul React Hooks</h1>
       <p>
-        This is a comprehensive testing application for all hooks and library functions in the
-        mukul-react-hooks package. Select a test from the navigation below to explore different
-        scenarios and see real-world examples.
+        This is a comprehensive documentation and testing application for all hooks and library
+        functions in the mukul-react-hooks package. Select a test from the navigation below to
+        explore different scenarios and see real-world examples.
       </p>
 
       <div className="card">

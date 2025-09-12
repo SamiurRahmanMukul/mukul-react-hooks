@@ -1,273 +1,607 @@
-# mukul-react-hooks
+<div align="center">
 
-Introducing the `mukul-react-hooks` NPM package, designed to streamline complex problem-solving within React web applications. Our custom hooks services offer an effortless solution for efficiently addressing intricate challenges. Experience seamless integration and enhanced functionality with `mukul-react-hooks`.
+# 🪝 mukul-react-hooks
 
-## ✨ TypeScript Support
+<p align="center">
+  <img src="https://img.shields.io/npm/v/mukul-react-hooks?style=for-the-badge&logo=npm&color=CB3837" alt="NPM Version" />
+  <img src="https://img.shields.io/npm/dt/mukul-react-hooks?style=for-the-badge&logo=npm&color=CB3837" alt="NPM Downloads" />
+  <img src="https://img.shields.io/github/license/SamiurRahmanMukul/mukul-react-hooks?style=for-the-badge&color=green" alt="License" />
+  <img src="https://img.shields.io/bundlephobia/minzip/mukul-react-hooks?style=for-the-badge&logo=webpack&color=8CC84B" alt="Bundle Size" />
+</p>
 
-This package now includes full **TypeScript support** with proper type definitions! You can use it in both JavaScript and TypeScript projects seamlessly.
+<p align="center">
+  <strong>🚀 A comprehensive collection of custom React hooks and utility functions</strong>
+</p>
 
-- 🔷 **Full TypeScript compatibility** with type definitions included
-- 🔷 **JavaScript support** maintained for existing projects
-- 🔷 **IntelliSense** and autocompletion in modern IDEs
-- 🔷 **Type safety** for all hooks and utility functions
-- 🔷 **Zero breaking changes** for existing JavaScript users
+<p align="center">
+  Streamline complex problem-solving within React applications with our carefully crafted hooks and utilities. Experience seamless integration, enhanced functionality, and developer-friendly APIs.
+</p>
 
-## Installation
+<p align="center">
+  <a href="https://mukul-react-hooks.vercel.app" target="_blank">
+    <img src="https://img.shields.io/badge/📖_Documentation-Visit_Live_Demo-blue?style=for-the-badge&logo=vercel" alt="Documentation" />
+  </a>
+</p>
 
-```sh
-npm i mukul-react-hooks
+</div>
+
+---
+
+## ✨ Features
+
+<table>
+<tr>
+<td>
+
+### 🎯 **TypeScript First**
+
+- Full TypeScript support with comprehensive type definitions
+- IntelliSense and autocompletion in modern IDEs
+- Type safety for all hooks and utility functions
+- Zero breaking changes for JavaScript users
+
+</td>
+<td>
+
+### ⚡ **Performance Optimized**
+
+- Tree-shakable exports for minimal bundle size
+- Optimized for modern React applications
+- No external dependencies
+- Lightweight and efficient
+
+</td>
+</tr>
+<tr>
+<td>
+
+### 🛠️ **Developer Experience**
+
+- Intuitive and consistent API design
+- Comprehensive documentation with examples
+- Live demo and test suite available
+- Easy integration with existing projects
+
+</td>
+<td>
+
+### 🔧 **Production Ready**
+
+- Thoroughly tested and battle-tested
+- Compatible with React 16.8+ and React 18
+- SSR/SSG friendly
+- Works with Next.js, Vite, and CRA
+
+</td>
+</tr>
+</table>
+
+## 📦 Installation
+
+```bash
+# Using npm
+npm install mukul-react-hooks
+
+# Using yarn
+yarn add mukul-react-hooks
+
+# Using pnpm
+pnpm add mukul-react-hooks
 ```
 
-## Collections of Custom React Hooks
+## 🎮 Quick Start
 
-1. [useTimeout - Hook 🚀](#1-usetimeout)
-2. [useMediaQuery - Hook 🚀](#2-usemediaquery)
-3. [useIsTopOfPage - Hook 🚀](#3-useistopofpage)
-4. [useFullScreen - Hook 🚀](#4-usefullscreen)
-5. [useUnsavedChangeAlert - Hook 🚀](#5-useunsavedchangealert)
+```tsx
+import { useTimeout, useMediaQuery, lib } from "mukul-react-hooks";
 
-### 1. useTimeout
-
-Custom React hook to handle a timeout and execute a callback function after the specified delay.
-
-**JavaScript:**
-
-```js
-"use client";
-
-import { useTimeout } from "mukul-react-hooks";
-
-export default function MyComponents() {
-  const [timeout] = useTimeout(() => {
-    // your codeblocks
-  }, 3000); // define time with milliseconds
-
-  timeout();
+function MyComponent() {
+  const isMobile = useMediaQuery("(max-width: 768px)");
+  const [startTimer] = useTimeout(() => console.log("Timer executed!"), 3000);
 
   return (
     <div>
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia, molestiae quas vel
-      sint commodi repudiandae consequuntur voluptatum laborum numquam blanditiis harum quisquam
-      eius sed odit fugiat iusto fuga praesentium optio, eaque rerum!
+      <p>Device: {isMobile ? "Mobile" : "Desktop"}</p>
+      <button onClick={startTimer}>Start 3s Timer</button>
     </div>
   );
 }
 ```
 
-**TypeScript:**
+## 🪝 React Hooks Collection
 
-```tsx
-"use client";
+<div align="center">
 
+| Hook                                                 | Description                              | Use Case                     |
+| ---------------------------------------------------- | ---------------------------------------- | ---------------------------- |
+| [⏰ useTimeout](#-usetimeout)                        | Execute callbacks after specified delays | Debouncing, delayed actions  |
+| [📱 useMediaQuery](#-usemediaquery)                  | Responsive design with CSS media queries | Responsive components        |
+| [⬆️ useIsTopOfPage](#️-useistopofpage)               | Detect if user is at the top of page     | Scroll-based UI changes      |
+| [🖥️ useFullScreen](#️-usefullscreen)                 | Manage fullscreen mode                   | Media players, presentations |
+| [⚠️ useUnsavedChangeAlert](#️-useunsavedchangealert) | Warn users about unsaved changes         | Forms, editors               |
+
+</div>
+
+### ⏰ useTimeout
+
+> Execute callbacks after specified delays with easy control and cleanup
+
+<details>
+<summary><strong>📋 API Reference</strong></summary>
+
+```typescript
+const [startTimeout, clearTimeout] = useTimeout(callback, delay);
+```
+
+**Parameters:**
+
+- `callback: () => void` - Function to execute after delay
+- `delay: number` - Delay in milliseconds
+
+**Returns:**
+
+- `[startTimeout, clearTimeout]` - Tuple with start and clear functions
+
+</details>
+
+<table>
+<tr>
+<td width="50%">
+
+#### 🟡 JavaScript
+
+```js
 import { useTimeout } from "mukul-react-hooks";
 
-export default function MyComponents(): JSX.Element {
-  const [timeout] = useTimeout<string>((args?: string) => {
-    console.log("Timeout executed with args:", args);
+function DelayedMessage() {
+  const [startTimer] = useTimeout(() => {
+    alert("3 seconds have passed!");
   }, 3000);
 
-  timeout("Hello TypeScript!");
-
-  return <div>Lorem ipsum dolor sit amet consectetur adipisicing elit.</div>;
+  return (
+    <div>
+      <button onClick={startTimer}>Start 3s Timer</button>
+    </div>
+  );
 }
 ```
 
-### 2. useMediaQuery
+</td>
+<td width="50%">
 
-Custom React hook to detect whether the specified media query matches the current viewport.
+#### 🔵 TypeScript
 
-```js
-"use client";
+```tsx
+import { useTimeout } from "mukul-react-hooks";
 
+function DelayedMessage(): JSX.Element {
+  const [startTimer] = useTimeout<string>((message?: string) => {
+    console.log(message || "Timer executed!");
+  }, 3000);
+
+  const handleClick = () => startTimer("Hello TypeScript!");
+
+  return (
+    <div>
+      <button onClick={handleClick}>Start 3s Timer</button>
+    </div>
+  );
+}
+```
+
+</td>
+</tr>
+</table>
+
+### 📱 useMediaQuery
+
+> Responsive design made easy with CSS media query detection
+
+<details>
+<summary><strong>📋 API Reference</strong></summary>
+
+```typescript
+const matches = useMediaQuery(query);
+```
+
+**Parameters:**
+
+- `query: string` - CSS media query string
+
+**Returns:**
+
+- `boolean` - Whether the media query matches
+
+</details>
+
+```tsx
 import { useMediaQuery } from "mukul-react-hooks";
 
-export default function MyComponents() {
-  const isDesktop = useMediaQuery("(min-width: 992px)"); // define your preferable breakpoints
+function ResponsiveComponent() {
+  const isMobile = useMediaQuery("(max-width: 768px)");
+  const isTablet = useMediaQuery("(min-width: 769px) and (max-width: 1024px)");
+  const isDesktop = useMediaQuery("(min-width: 1025px)");
 
   return (
-    <div style={{ backgroundColor: isDesktop ? "red" : "green" }}>
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia, molestiae quas vel
-      sint commodi repudiandae consequuntur voluptatum laborum numquam blanditiis harum quisquam
-      eius sed odit fugiat iusto fuga praesentium optio, eaque rerum!
+    <div className={`layout ${isMobile ? "mobile" : isTablet ? "tablet" : "desktop"}`}>
+      <h2>Current Device: {isMobile ? "📱 Mobile" : isTablet ? "📟 Tablet" : "🖥️ Desktop"}</h2>
+      <p>Resize your window to see the magic! ✨</p>
     </div>
   );
 }
 ```
 
-### 3. useIsTopOfPage
+### ⬆️ useIsTopOfPage
 
-Custom React hook to determine if the user is at the top of the page.
+> Detect when users are at the top of the page for scroll-based UI changes
 
-```js
-"use client";
+<details>
+<summary><strong>📋 API Reference</strong></summary>
 
+```typescript
+const isTop = useIsTopOfPage(threshold?);
+```
+
+**Parameters:**
+
+- `threshold?: number` - Scroll threshold in pixels (default: 0)
+
+**Returns:**
+
+- `boolean` - Whether user is at the top of the page
+
+</details>
+
+```tsx
 import { useIsTopOfPage } from "mukul-react-hooks";
 
-export default function MyComponents() {
-  const isTopOfPage = useIsTopOfPage();
+function ScrollIndicator() {
+  const isTop = useIsTopOfPage();
 
   return (
-    <div style={{ backgroundColor: isTopOfPage ? "red" : "green" }}>
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia, molestiae quas vel
-      sint commodi repudiandae consequuntur voluptatum laborum numquam blanditiis harum quisquam
-      eius sed odit fugiat iusto fuga praesentium optio, eaque rerum!
+    <div>
+      <header className={`navbar ${!isTop ? "navbar-scrolled" : ""}`}>
+        <h1>My Website</h1>
+        {!isTop && <div className="scroll-indicator">📍 You've scrolled down</div>}
+      </header>
+
+      <main style={{ height: "200vh", padding: "2rem" }}>
+        <h2>Scroll down to see the navbar change! 👇</h2>
+        <p>Status: {isTop ? "⬆️ At the top" : "⬇️ Scrolled down"}</p>
+      </main>
     </div>
   );
 }
 ```
 
-### 4. useFullScreen
+### 🖥️ useFullScreen
 
-A custom React hook to manage browser full screen functionality.
+> Manage fullscreen mode with cross-browser compatibility
 
-```js
-"use client";
+<details>
+<summary><strong>📋 API Reference</strong></summary>
 
+```typescript
+const { isFullscreen, toggleFullscreen, enterFullscreen, exitFullscreen } = useFullScreen();
+```
+
+**Returns:**
+
+- `isFullscreen: boolean` - Current fullscreen state
+- `toggleFullscreen: () => void` - Toggle fullscreen mode
+- `enterFullscreen: () => void` - Enter fullscreen mode
+- `exitFullscreen: () => void` - Exit fullscreen mode
+
+</details>
+
+```tsx
 import { useFullScreen } from "mukul-react-hooks";
 
-export default function MyComponents() {
-  const { isFullscreen, toggleFullscreen } = useFullScreen();
+function VideoPlayer() {
+  const { isFullscreen, toggleFullscreen, enterFullscreen, exitFullscreen } = useFullScreen();
 
   return (
-    <button onClick={() => toggleFullscreen()}>
-      {isFullscreen ? "Exit Full Screen" : "Enter Full Screen"}
-    </button>
+    <div className="video-container">
+      <video controls width="100%" height="400">
+        <source src="sample-video.mp4" type="video/mp4" />
+      </video>
+
+      <div className="controls">
+        <button onClick={toggleFullscreen} className="fullscreen-btn">
+          {isFullscreen ? "🔲 Exit Fullscreen" : "⛶ Enter Fullscreen"}
+        </button>
+
+        <div className="control-group">
+          <button onClick={enterFullscreen}>🔍 Enter</button>
+          <button onClick={exitFullscreen}>🔍 Exit</button>
+        </div>
+      </div>
+
+      <p>Status: {isFullscreen ? "🖥️ Fullscreen Active" : "📱 Normal View"}</p>
+    </div>
   );
 }
 ```
 
-### 5. useUnsavedChangeAlert
+### ⚠️ useUnsavedChangeAlert
 
-A custom React hook that provides functionality for handling unsaved changes and displaying an alert when attempting to leave the page.
+> Prevent accidental data loss with unsaved change warnings
 
-```js
-"use client";
+<details>
+<summary><strong>📋 API Reference</strong></summary>
 
+```typescript
+useUnsavedChangeAlert(hasUnsavedChanges, message?);
+```
+
+**Parameters:**
+
+- `hasUnsavedChanges: boolean` - Whether there are unsaved changes
+- `message?: string` - Custom warning message
+
+**Behavior:**
+
+- Shows browser confirmation dialog when leaving page
+- Prevents accidental navigation away from unsaved work
+
+</details>
+
+```tsx
 import { useUnsavedChangeAlert } from "mukul-react-hooks";
 import { useState } from "react";
 
-export default function MyComponents() {
-  const [hasUnsavedChanges, setHasUnsavedChanges] = useState(true);
+function FormEditor() {
+  const [formData, setFormData] = useState({ name: "", email: "" });
+  const [originalData] = useState({ name: "", email: "" });
 
-  // Display an alert only when the value of `hasUnsavedChanges` is `true`.
-  useUnsavedChangesAlert(hasUnsavedChanges);
+  // Check if form has unsaved changes
+  const hasUnsavedChanges = JSON.stringify(formData) !== JSON.stringify(originalData);
+
+  // Show warning when leaving page with unsaved changes
+  useUnsavedChangeAlert(
+    hasUnsavedChanges,
+    "You have unsaved changes. Are you sure you want to leave?"
+  );
 
   return (
-    <div>
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia, molestiae quas vel
-      sint commodi repudiandae consequuntur voluptatum laborum numquam blanditiis harum quisquam
-      eius sed odit fugiat iusto fuga praesentium optio, eaque rerum!
-    </div>
+    <form>
+      <div>
+        <label>Name:</label>
+        <input
+          value={formData.name}
+          onChange={(e) => setFormData((prev) => ({ ...prev, name: e.target.value }))}
+        />
+      </div>
+
+      <div>
+        <label>Email:</label>
+        <input
+          value={formData.email}
+          onChange={(e) => setFormData((prev) => ({ ...prev, email: e.target.value }))}
+        />
+      </div>
+
+      <div className="status">
+        {hasUnsavedChanges ? "⚠️ Unsaved changes" : "✅ All changes saved"}
+      </div>
+
+      <button type="submit">Save Changes</button>
+    </form>
   );
 }
 ```
 
-## JavaScript/TypeScript Library Functions
+## 🛠️ Utility Library Functions
 
-A collection of utility functions with full TypeScript support, tailored specifically for React developers.
+> A comprehensive collection of utility functions with full TypeScript support
 
-**JavaScript:**
+<div align="center">
+
+### 📚 Available Functions
+
+| Category            | Functions                                                      | Description                               |
+| ------------------- | -------------------------------------------------------------- | ----------------------------------------- |
+| **🔤 String Utils** | `transformString`, `truncateStringEnd`, `truncateStringMiddle` | String manipulation and formatting        |
+| **🔢 Number Utils** | `numberFormatWithCommas`, `internationalCurrencyConvert`       | Number formatting and currency conversion |
+| **📧 Validation**   | `isValidEmail`, `isEmptyObject`                                | Data validation utilities                 |
+| **🎨 Generators**   | `randomColor`, `generateUniqueId`                              | Random value generators                   |
+| **📁 File Utils**   | `downloadString`                                               | File download utilities                   |
+| **⏱️ Async Utils**  | `asyncDelay`, `waitSomeMoment`                                 | Async operation helpers                   |
+| **📋 Array Utils**  | `arrayToCommaSeparatedText`                                    | Array manipulation                        |
+| **📅 Date Utils**   | `unixToDateTime`                                               | Date and time utilities                   |
+
+</div>
+
+### 🚀 Quick Examples
+
+<table>
+<tr>
+<td width="50%">
+
+#### 🟡 JavaScript Usage
 
 ```js
-"use client";
-
 import { lib } from "mukul-react-hooks";
 
 const {
   arrayToCommaSeparatedText,
-  asyncDelay,
-  downloadString,
-  internationalCurrencyConvert,
-  isEmptyObject,
+  randomColor,
   isValidEmail,
   numberFormatWithCommas,
-  randomColor,
-  transformString,
-  truncateStringEnd,
-  truncateStringMiddle,
-  unixToDateTime,
-  waitSomeMoment,
-  generateUniqueId,
-} = lib;
-
-export default async function MyComponents() {
-  // Outputs
-  console.log(arrayToCommaSeparatedText(["a", "b", "c"])); // a, b, c
-  console.log(internationalCurrencyConvert(1000000)); // 1 M
-  console.log(isEmptyObject({})); // true
-  console.log(isValidEmail("example@mail.com")); // true
-  console.log(numberFormatWithCommas(1000000)); // 1,000,000
-  console.log(randomColor()); // #ff0000 --> generated random color in hex format
-  console.log(transformString("My Name Is Mukul")); // my_name_is_mukul
-  console.log(truncateStringEnd("My Name Is Mukul", 10)); // My Name Is...
-  console.log(truncateStringMiddle("My Name Is Mukul", 10, "...")); // My ...ukul
-  console.log(unixToDateTime(1668300000)); // 20 Jan 1970, 1:25 PM
-  console.log(generateUniqueId()); // uuid-1718966248675-0.b04c1e945abf
-
-  // Asynchronous Components or JavaScript functions delay
-  await asyncDelay(3000); // define time with milliseconds
-
-  return (
-    <div>
-      <button onClick={() => downloadString("My Name Is Mukul", "mukul", "txt")}>Download</button>
-    </div>
-  );
-}
-```
-
-**TypeScript:**
-
-```tsx
-"use client";
-
-import { lib } from "mukul-react-hooks";
-
-const {
-  arrayToCommaSeparatedText,
-  asyncDelay,
   downloadString,
-  internationalCurrencyConvert,
-  isEmptyObject,
-  isValidEmail,
-  numberFormatWithCommas,
-  randomColor,
-  transformString,
-  truncateStringEnd,
-  truncateStringMiddle,
-  unixToDateTime,
-  waitSomeMoment,
-  generateUniqueId,
 } = lib;
 
-export default async function MyComponents(): Promise<JSX.Element> {
-  // Type-safe function calls with proper return types
-  const commaSeparated: string = arrayToCommaSeparatedText(["a", "b", "c"]); // a, b, c
-  const currency: string | number = internationalCurrencyConvert(1000000); // 1 M
-  const isEmpty: boolean = isEmptyObject({}); // true
-  const emailValid: boolean = isValidEmail("example@mail.com"); // true
-  const formatted: string = numberFormatWithCommas(1000000); // 1,000,000
-  const color: string = randomColor(); // #ff0000 --> generated random color in hex format
-  const transformed: string = transformString("My Name Is Mukul"); // my_name_is_mukul
-  const truncated: string = truncateStringEnd("My Name Is Mukul", 10); // My Name Is...
-  const truncatedMiddle: string = truncateStringMiddle("My Name Is Mukul", 10, "..."); // My ...ukul
-  const dateTime: string = unixToDateTime(1668300000); // 20 Jan 1970, 1:25 PM
-  const uniqueId: string = generateUniqueId(); // uuid-1718966248675-0.b04c1e945abf
+function UtilityDemo() {
+  const handleDemo = () => {
+    // String and array utilities
+    console.log(arrayToCommaSeparatedText(["React", "Vue", "Angular"]));
+    // → "React, Vue, Angular"
 
-  // Async delay with proper Promise handling
-  await asyncDelay(3000);
+    // Validation
+    console.log(isValidEmail("user@example.com"));
+    // → true
 
-  const handleDownload = (): void => {
-    downloadString("My Name Is Mukul", "mukul", "txt");
+    // Number formatting
+    console.log(numberFormatWithCommas(1234567));
+    // → "1,234,567"
+
+    // Generate random color
+    console.log(randomColor());
+    // → "#ff6b35"
   };
 
   return (
     <div>
-      <button onClick={handleDownload}>Download</button>
+      <button onClick={handleDemo}>Run Demo</button>
+      <button onClick={() => downloadString("Hello World!", "demo", "txt")}>
+        📥 Download File
+      </button>
     </div>
   );
 }
 ```
 
-<p align="center">
-  HAPPY DEVELOPMENT 🙂
-</p>
+</td>
+<td width="50%">
+
+#### 🔵 TypeScript Usage
+
+```tsx
+import { lib } from "mukul-react-hooks";
+
+const {
+  generateUniqueId,
+  internationalCurrencyConvert,
+  truncateStringEnd,
+  unixToDateTime,
+  asyncDelay,
+} = lib;
+
+async function TypeSafeDemo(): Promise<JSX.Element> {
+  // Type-safe function calls
+  const uniqueId: string = generateUniqueId();
+  const currency: string | number = internationalCurrencyConvert(1500000);
+  const truncated: string = truncateStringEnd("Long text here", 10);
+  const dateTime: string = unixToDateTime(Date.now() / 1000);
+
+  // Async operations with proper typing
+  await asyncDelay(1000);
+
+  const handleAsyncAction = async (): Promise<void> => {
+    await asyncDelay(2000);
+    console.log("Action completed!");
+  };
+
+  return (
+    <div>
+      <p>ID: {uniqueId}</p>
+      <p>Currency: {currency}</p>
+      <p>Truncated: {truncated}</p>
+      <p>DateTime: {dateTime}</p>
+      <button onClick={handleAsyncAction}>⏳ Async Action</button>
+    </div>
+  );
+}
+```
+
+</td>
+</tr>
+</table>
+
+### 📖 Detailed Function Reference
+
+<details>
+<summary><strong>🔍 Click to expand full API documentation</strong></summary>
+
+```typescript
+// String utilities
+transformString(text: string): string                    // Convert to snake_case
+truncateStringEnd(text: string, length: number): string  // Truncate with "..."
+truncateStringMiddle(text: string, length: number, separator: string): string
+
+// Number utilities
+numberFormatWithCommas(number: number): string           // Add thousand separators
+internationalCurrencyConvert(amount: number): string | number // Convert to K, M, B format
+
+// Validation utilities
+isValidEmail(email: string): boolean                     // Email validation
+isEmptyObject(obj: object): boolean                      // Check if object is empty
+
+// Generator utilities
+randomColor(): string                                    // Generate random hex color
+generateUniqueId(): string                              // Generate unique identifier
+
+// File utilities
+downloadString(content: string, filename: string, extension: string): void
+
+// Async utilities
+asyncDelay(ms: number): Promise<void>                   // Promise-based delay
+waitSomeMoment(ms: number): Promise<void>               // Alternative delay function
+
+// Array utilities
+arrayToCommaSeparatedText(array: string[]): string     // Join array with commas
+
+// Date utilities
+unixToDateTime(timestamp: number): string              // Convert Unix timestamp to readable date
+```
+
+</details>
+
+---
+
+## 🤝 Contributing
+
+We welcome contributions! Please feel free to submit a Pull Request. For major changes, please open an issue first to discuss what you would like to change.
+
+<div align="center">
+
+### 🔗 Links & Resources
+
+| Resource                  | Link                                                                                                     | Description                    |
+| ------------------------- | -------------------------------------------------------------------------------------------------------- | ------------------------------ |
+| 📖 **Live Documentation** | [mukul-react-hooks.vercel.app](https://mukul-react-hooks.vercel.app)                                     | Interactive docs & test suite  |
+| 📦 **NPM Package**        | [npmjs.com/package/mukul-react-hooks](https://www.npmjs.com/package/mukul-react-hooks)                   | Official package page          |
+| 🐙 **GitHub Repository**  | [github.com/SamiurRahmanMukul/mukul-react-hooks](https://github.com/SamiurRahmanMukul/mukul-react-hooks) | Source code & issues           |
+| 🐛 **Bug Reports**        | [GitHub Issues](https://github.com/SamiurRahmanMukul/mukul-react-hooks/issues)                           | Report bugs & request features |
+
+</div>
+
+## 📊 Package Stats
+
+<div align="center">
+
+![NPM Version](https://img.shields.io/npm/v/mukul-react-hooks?style=flat-square&logo=npm)
+![NPM Downloads](https://img.shields.io/npm/dm/mukul-react-hooks?style=flat-square&logo=npm)
+![Bundle Size](https://img.shields.io/bundlephobia/minzip/mukul-react-hooks?style=flat-square&logo=webpack)
+![GitHub Stars](https://img.shields.io/github/stars/SamiurRahmanMukul/mukul-react-hooks?style=flat-square&logo=github)
+![GitHub Forks](https://img.shields.io/github/forks/SamiurRahmanMukul/mukul-react-hooks?style=flat-square&logo=github)
+![License](https://img.shields.io/github/license/SamiurRahmanMukul/mukul-react-hooks?style=flat-square)
+
+</div>
+
+## 📄 License
+
+This project is licensed under the **MIT License** - see the [LICENSE.txt](LICENSE.txt) file for details.
+
+## 👨‍💻 Author
+
+<div align="center">
+
+### Md. Samiur Rahman (Mukul)
+
+[![Portfolio](https://img.shields.io/badge/🌐_Portfolio-srmukul.com-blue?style=for-the-badge)](https://srmukul.com)
+[![GitHub](https://img.shields.io/badge/GitHub-SamiurRahmanMukul-black?style=for-the-badge&logo=github)](https://github.com/SamiurRahmanMukul)
+[![Email](https://img.shields.io/badge/Email-contact@srmukul.com-red?style=for-the-badge&logo=gmail)](mailto:contact@srmukul.com)
+
+</div>
+
+---
+
+<div align="center">
+
+### 🌟 If this package helped you, please consider giving it a star
+
+  <p align="center">
+    Made with ❤️ by <a href="https://srmukul.com">Mukul</a>
+  </p>
+
+</div>

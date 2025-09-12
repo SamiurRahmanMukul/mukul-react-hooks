@@ -11,11 +11,10 @@ Introducing the `mukul-react-hooks` NPM package, designed to streamline complex 
 5. useUnsavedChangeAlert [✅ DONE]
 6. useCountryList [🚀 COMING SOON]
 7. useReactToPrint [🚀 COMING SOON]
-8. userReactPuzzleCaptcha [🚀 COMING SOON]
-9. useScreenSize [🚀 COMING SOON]
-10. useCopyClipboard [🚀 COMING SOON]
-11. useDebounce [🚀 COMING SOON]
-12. useResponsive [🚀 COMING SOON]
+8. useScreenSize [🚀 COMING SOON]
+9. useCopyClipboard [🚀 COMING SOON]
+10. useDebounce [🚀 COMING SOON]
+11. useResponsive [🚀 COMING SOON]
 
 ## 2. List of Hooks are Library
 

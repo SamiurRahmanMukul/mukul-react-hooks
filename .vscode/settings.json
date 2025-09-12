@@ -2,7 +2,7 @@
   "editor.defaultFormatter": "esbenp.prettier-vscode",
   "editor.codeActionsOnSave": { "source.fixAll": "explicit" },
   "eslint.validate": ["javascript", "javascriptreact"],
-  "cSpell.words": ["Fullscreen", "mozfullscreenchange", "msfullscreenchange", "rollup"],
+  "cSpell.words": ["Fullscreen", "mozfullscreenchange", "msfullscreenchange", "npmjs", "rollup"],
   "editor.formatOnSave": true,
   "prettier.printWidth": 100
 }
