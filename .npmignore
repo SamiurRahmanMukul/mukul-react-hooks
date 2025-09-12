@@ -4,3 +4,10 @@ src
 rollup.config.js
 mukul-react-hooks*.tgz
 DEVELOPMENT.md
+test-app/
+test-app/**
+*.log
+.env*
+coverage/
+.nyc_output
+*.tsbuildinfo

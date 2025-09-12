@@ -1,0 +1,390 @@
+:root {
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color-scheme: light dark;
+  color: rgba(255, 255, 255, 0.87);
+  background-color: #242424;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: 100%;
+}
+
+a {
+  font-weight: 500;
+  color: #646cff;
+  text-decoration: inherit;
+}
+a:hover {
+  color: #535bf2;
+}
+
+body {
+  margin: 0;
+  display: flex;
+  place-items: center;
+  min-width: 320px;
+  min-height: 100vh;
+}
+
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+  width: 100%;
+}
+
+h1 {
+  font-size: 3.2em;
+  line-height: 1.1;
+  margin-bottom: 2rem;
+}
+
+.card {
+  padding: 2em;
+  margin: 1rem 0;
+  background: #1a1a1a;
+  border-radius: 8px;
+  border: 1px solid #333;
+}
+
+.nav-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+  margin-bottom: 2rem;
+}
+
+.nav-link {
+  padding: 0.5rem 1rem;
+  border: 1px solid #646cff;
+  border-radius: 4px;
+  text-decoration: none;
+  transition: all 0.2s;
+}
+
+.nav-link:hover {
+  background-color: #646cff;
+  color: white;
+}
+
+.nav-link.active {
+  background-color: #535bf2;
+  color: white;
+}
+
+.test-section {
+  margin: 2rem 0;
+  padding: 1.5rem;
+  border: 1px solid #555;
+  border-radius: 8px;
+  background: #1e1e1e;
+}
+
+.test-section h3 {
+  color: #ffd700;
+  margin-bottom: 1rem;
+}
+
+.demo-controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+  margin: 1rem 0;
+}
+
+.demo-control {
+  padding: 0.5rem 1rem;
+  border: 1px solid #646cff;
+  border-radius: 4px;
+  background: #333;
+  color: white;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.demo-control:hover {
+  background: #646cff;
+}
+
+.demo-output {
+  margin: 1rem 0;
+  padding: 1rem;
+  background: #2a2a2a;
+  border-radius: 4px;
+  border-left: 4px solid #646cff;
+}
+
+.form-group {
+  margin: 1rem 0;
+  text-align: left;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+}
+
+.form-group input,
+.form-group textarea,
+.form-group select {
+  width: 100%;
+  padding: 0.5rem;
+  border: 1px solid #555;
+  border-radius: 4px;
+  background: #333;
+  color: white;
+  font-size: 1rem;
+}
+
+.form-group input:focus,
+.form-group textarea:focus,
+.form-group select:focus {
+  outline: none;
+  border-color: #646cff;
+}
+
+.status-indicator {
+  display: inline-block;
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+.status-indicator.active {
+  background: #10b981;
+  color: white;
+}
+
+.status-indicator.inactive {
+  background: #ef4444;
+  color: white;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1rem;
+  margin: 1rem 0;
+}
+
+.result-box {
+  padding: 1rem;
+  background: #2a2a2a;
+  border-radius: 4px;
+  border: 1px solid #555;
+}
+
+.color-preview {
+  width: 100px;
+  height: 50px;
+  border-radius: 4px;
+  border: 1px solid #555;
+  margin: 0.5rem auto;
+}
+
+.back-button {
+  margin-bottom: 2rem;
+  padding: 0.5rem 1rem;
+  background: #333;
+  border: 1px solid #646cff;
+  border-radius: 4px;
+  color: #646cff;
+  text-decoration: none;
+  display: inline-block;
+  transition: all 0.2s;
+}
+
+.back-button:hover {
+  background: #646cff;
+  color: white;
+}
+
+/* Installation Section Styles */
+.installation-intro {
+  margin-bottom: 1.5rem;
+}
+
+.installation-commands {
+  display: grid;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.command-container {
+  display: flex;
+  align-items: center;
+  background-color: #2a2a2a;
+  border-radius: 6px;
+  padding: 0.75rem 1rem;
+  border: 1px solid #333;
+}
+
+.command-code {
+  flex: 1;
+  font-family: monospace;
+  font-size: 0.875rem;
+  color: #e6e6e6;
+}
+
+.copy-button {
+  margin-left: 0.75rem;
+  padding: 0.25rem 0.5rem;
+  border: none;
+  border-radius: 4px;
+  color: white;
+  font-size: 0.75rem;
+  cursor: pointer;
+  transition: all 0.2s;
+  min-width: 50px;
+  background-color: #646cff;
+}
+
+.copy-button.copied {
+  background-color: #10b981;
+}
+
+.copy-button:not(.copied):hover {
+  background-color: #535bf2;
+}
+
+.installation-tip {
+  padding: 0.75rem 1rem;
+  background-color: #1a3a1a;
+  border-radius: 6px;
+  border: 1px solid #10b981;
+  font-size: 0.875rem;
+}
+
+/* Enhanced code blocks with syntax highlighting */
+.demo-output pre {
+  background-color: #1e1e1e !important;
+  border: 1px solid #333;
+  border-radius: 6px;
+  padding: 1.25rem !important;
+  font-family: "Fira Code", "Monaco", "Cascadia Code", "Roboto Mono", monospace;
+  font-size: 0.875rem;
+  line-height: 1.6;
+  overflow-x: auto;
+  color: #d4d4d4;
+  text-align: left !important;
+
+  /* CSS variables for syntax highlighting */
+  --keyword-color: #569cd6;
+  --string-color: #ce9178;
+  --comment-color: #6a9955;
+  --function-color: #dcdcaa;
+  --number-color: #b5cea8;
+  --type-color: #4ec9b0;
+}
+
+.demo-output pre code {
+  background: none;
+  padding: 0;
+  font-size: inherit;
+  color: inherit;
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    color: #213547;
+    background-color: #ffffff;
+  }
+  a:hover {
+    color: #747bff;
+  }
+  .card {
+    background: #f9f9f9;
+    border-color: #ddd;
+  }
+  .test-section {
+    background: #f5f5f5;
+    border-color: #ddd;
+  }
+  .demo-output {
+    background: #f0f0f0;
+    border-left-color: #747bff;
+  }
+  .result-box {
+    background: #f0f0f0;
+    border-color: #ddd;
+  }
+  .command-container {
+    background-color: #f5f5f5;
+    border-color: #ddd;
+  }
+  .command-code {
+    color: #333;
+  }
+  .installation-tip {
+    background-color: #f0f9ff;
+    border-color: #0ea5e9;
+  }
+
+  /* Light mode code blocks */
+  .demo-output pre {
+    background-color: #f8f8f8 !important;
+    border-color: #e1e4e8;
+    color: #24292e;
+
+    /* Light mode syntax colors */
+    --keyword-color: #d73a49;
+    --string-color: #032f62;
+    --comment-color: #6a737d;
+    --function-color: #6f42c1;
+    --number-color: #005cc5;
+    --type-color: #22863a;
+  }
+}
+
+/* Footer Styles */
+.footer {
+  margin-top: 3rem;
+  padding: 3rem 0;
+  border-top: 1px solid #333;
+  text-align: center;
+}
+
+.footer__copy {
+  margin: 0;
+  font-size: 0.875rem;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.footer__copy a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.footer__author {
+  margin: 0 0.25rem;
+  transition: color 0.2s ease-in-out;
+  color: #646cff;
+}
+
+.footer__author:hover {
+  color: #535bf2;
+}
+
+@media (prefers-color-scheme: light) {
+  .footer {
+    border-top-color: #ddd;
+  }
+
+  .footer__copy {
+    color: rgba(33, 53, 71, 0.7);
+  }
+
+  .footer__author:hover {
+    color: #747bff;
+  }
+}
