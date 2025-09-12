@@ -23,7 +23,10 @@
     "build": "rollup -c --environment NODE_ENV:production",
     "type-check": "tsc --noEmit",
     "build:types": "tsc --emitDeclarationOnly",
-    "pack": "npm run build && npm pack"
+    "pack": "npm run build && npm pack",
+    "test:dev": "cd test-app && npm run dev",
+    "test:build": "cd test-app && npm run build",
+    "test:install": "cd test-app && npm install"
   },
   "repository": {
     "type": "git",

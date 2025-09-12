@@ -20,6 +20,7 @@ bin-release/
 
 # Ignore node_modules
 /node_modules
+/test-app/node_modules
 
 # Ignore build_modules
 dist
