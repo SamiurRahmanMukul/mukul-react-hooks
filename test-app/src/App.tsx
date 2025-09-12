@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { Link, Route, Routes, useLocation } from "react-router-dom";
 
 // Hook test components
@@ -69,14 +70,73 @@ const libraryTests = [
 ];
 
 function HomePage() {
+  const [copiedStates, setCopiedStates] = useState({
+    npm: false,
+    yarn: false,
+  });
+
+  const handleCopy = async (text: string, type: "npm" | "yarn") => {
+    try {
+      await navigator.clipboard.writeText(text);
+      setCopiedStates((prev) => ({ ...prev, [type]: true }));
+
+      // Reset after 2 seconds
+      setTimeout(() => {
+        setCopiedStates((prev) => ({ ...prev, [type]: false }));
+      }, 2000);
+    } catch (err) {
+      console.error("Failed to copy text: ", err);
+    }
+  };
+
   return (
     <div>
-      <h1>Mukul React Hooks Test Suite</h1>
+      <h1>Mukul React Hooks</h1>
       <p>
         This is a comprehensive testing application for all hooks and library functions in the
         mukul-react-hooks package. Select a test from the navigation below to explore different
         scenarios and see real-world examples.
       </p>
+
+      <div className="card">
+        <h2>📦 Installation</h2>
+        <p className="installation-intro">
+          Get started with <strong>mukul-react-hooks</strong> in your React project.{" "}
+          <a
+            href="https://www.npmjs.com/package/mukul-react-hooks"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            View on NPM →
+          </a>
+        </p>
+
+        <div className="installation-commands">
+          <div className="command-container">
+            <code className="command-code">npm install mukul-react-hooks</code>
+            <button
+              onClick={() => handleCopy("npm install mukul-react-hooks", "npm")}
+              className={`copy-button ${copiedStates.npm ? "copied" : ""}`}
+            >
+              {copiedStates.npm ? "✓" : "Copy"}
+            </button>
+          </div>
+
+          <div className="command-container">
+            <code className="command-code">yarn add mukul-react-hooks</code>
+            <button
+              onClick={() => handleCopy("yarn add mukul-react-hooks", "yarn")}
+              className={`copy-button ${copiedStates.yarn ? "copied" : ""}`}
+            >
+              {copiedStates.yarn ? "✓" : "Copy"}
+            </button>
+          </div>
+        </div>
+
+        <div className="installation-tip">
+          💡 <strong>Tip:</strong> Use this test app as your implementation reference!
+        </div>
+      </div>
 
       <div className="card">
         <h2>🎣 React Hooks Tests</h2>
@@ -124,6 +184,16 @@ function App() {
           <Route key={test.path} path={test.path} element={<test.component />} />
         ))}
       </Routes>
+
+      <footer className="footer">
+        <p className="footer__copy">
+          © 2025
+          <a href="https://srmukul.com/" target="_blank" rel="noopener noreferrer">
+            <span className="footer__author">Md. Samiur Rahman (Mukul).</span>
+          </a>
+          All rights reserved.
+        </p>
+      </footer>
     </div>
   );
 }
