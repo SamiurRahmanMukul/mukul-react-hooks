@@ -248,6 +248,72 @@ export default function ArrayToCommaSeparatedTextTest() {
       </div>
 
       <div className="test-section">
+        <h3>📚 Implementation Documentation</h3>
+        <div className="demo-output">
+          <h4>API Reference</h4>
+          <pre
+            style={{
+              backgroundColor: "#1a1a1a",
+              padding: "1rem",
+              borderRadius: "4px",
+              textAlign: "left",
+            }}
+          >
+            {`import { lib } from 'mukul-react-hooks';
+
+const result = lib.arrayToCommaSeparatedText(array);`}
+          </pre>
+
+          <h4>Parameters</h4>
+          <ul style={{ textAlign: "left", margin: "1rem 0" }}>
+            <li>
+              <strong>array</strong> (any[]): Array of items to convert to comma-separated text
+            </li>
+          </ul>
+
+          <h4>Return Value</h4>
+          <ul style={{ textAlign: "left", margin: "1rem 0" }}>
+            <li>
+              <strong>string</strong>: Comma-separated text or "N/A" for empty/invalid arrays
+            </li>
+          </ul>
+
+          <h4>Usage Examples</h4>
+          <pre
+            style={{
+              backgroundColor: "#1a1a1a",
+              padding: "1rem",
+              borderRadius: "4px",
+              textAlign: "left",
+              fontSize: "0.875rem",
+            }}
+          >
+            {`// Basic usage
+const tags = ['react', 'typescript', 'hooks'];
+const tagString = lib.arrayToCommaSeparatedText(tags);
+// Result: "react, typescript, hooks"
+
+// In React components
+const TagDisplay = ({ tags }) => (
+  <div>Tags: {lib.arrayToCommaSeparatedText(tags)}</div>
+);
+
+// With mixed types
+const mixedArray = ['text', 42, true, null];
+const result = lib.arrayToCommaSeparatedText(mixedArray);
+// Result: "text, 42, true, null"
+
+// Error handling
+const emptyResult = lib.arrayToCommaSeparatedText([]);
+// Result: "N/A"
+
+const nullResult = lib.arrayToCommaSeparatedText(null);
+// Result: "N/A"`}
+          </pre>
+        </div>
+      </div>
+
+      <div className="test-section">
         <h3>Function Details</h3>
         <div className="demo-output">
           <ul style={{ textAlign: "left" }}>

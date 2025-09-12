@@ -77,6 +77,72 @@ export default function UseFullScreenTest() {
       </div>
 
       <div className="test-section">
+        <h3>📚 Implementation Documentation</h3>
+        <div className="demo-output">
+          <h4>API Reference</h4>
+          <pre
+            style={{
+              backgroundColor: "#1a1a1a",
+              padding: "1rem",
+              borderRadius: "4px",
+              textAlign: "left",
+            }}
+          >
+            {`import { useFullScreen } from 'mukul-react-hooks';
+
+const { isFullscreen, toggleFullscreen } = useFullScreen();`}
+          </pre>
+
+          <h4>Return Value</h4>
+          <ul style={{ textAlign: "left", margin: "1rem 0" }}>
+            <li>
+              <strong>isFullscreen</strong> (boolean): Current fullscreen state
+            </li>
+            <li>
+              <strong>toggleFullscreen</strong> (function): Async function to toggle fullscreen mode
+            </li>
+          </ul>
+
+          <h4>Usage Examples</h4>
+          <pre
+            style={{
+              backgroundColor: "#1a1a1a",
+              padding: "1rem",
+              borderRadius: "4px",
+              textAlign: "left",
+              fontSize: "0.875rem",
+            }}
+          >
+            {`// Basic usage
+const VideoPlayer = () => {
+  const { isFullscreen, toggleFullscreen } = useFullScreen();
+  
+  return (
+    <div>
+      <video controls />
+      <button onClick={toggleFullscreen}>
+        {isFullscreen ? 'Exit Fullscreen' : 'Go Fullscreen'}
+      </button>
+    </div>
+  );
+};
+
+// With error handling
+const handleFullscreen = async () => {
+  try {
+    await toggleFullscreen();
+  } catch (error) {
+    console.error('Fullscreen failed:', error);
+  }
+};
+
+// Conditional rendering based on state
+{isFullscreen && <div>Currently in fullscreen mode</div>}`}
+          </pre>
+        </div>
+      </div>
+
+      <div className="test-section">
         <h3>Browser Compatibility</h3>
         <div className="demo-output">
           <p>This hook handles the following browser prefixes:</p>

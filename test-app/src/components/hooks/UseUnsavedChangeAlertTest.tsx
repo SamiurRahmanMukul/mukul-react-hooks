@@ -232,6 +232,106 @@ export default function UseUnsavedChangeAlertTest() {
       </div>
 
       <div className="test-section">
+        <h3>📚 Implementation Documentation</h3>
+        <div className="demo-output">
+          <h4>API Reference</h4>
+          <pre
+            style={{
+              backgroundColor: "#1a1a1a",
+              padding: "1rem",
+              borderRadius: "4px",
+              textAlign: "left",
+            }}
+          >
+            {`import { useUnsavedChangeAlert } from 'mukul-react-hooks';
+
+useUnsavedChangeAlert(hasUnsavedChanges);`}
+          </pre>
+
+          <h4>Parameters</h4>
+          <ul style={{ textAlign: "left", margin: "1rem 0" }}>
+            <li>
+              <strong>hasUnsavedChanges</strong> (boolean): Whether there are unsaved changes to
+              protect
+            </li>
+          </ul>
+
+          <h4>Return Value</h4>
+          <ul style={{ textAlign: "left", margin: "1rem 0" }}>
+            <li>
+              <strong>void</strong>: This hook doesn't return anything, it manages the beforeunload
+              event
+            </li>
+          </ul>
+
+          <h4>Usage Examples</h4>
+          <pre
+            style={{
+              backgroundColor: "#1a1a1a",
+              padding: "1rem",
+              borderRadius: "4px",
+              textAlign: "left",
+              fontSize: "0.875rem",
+            }}
+          >
+            {`// Form protection
+const ContactForm = () => {
+  const [formData, setFormData] = useState({ name: '', email: '', message: '' });
+  const [originalData] = useState(formData);
+  const [isSaved, setIsSaved] = useState(true);
+  
+  const hasChanges = !isSaved && JSON.stringify(formData) !== JSON.stringify(originalData);
+  useUnsavedChangeAlert(hasChanges);
+  
+  return (
+    <form>
+      <input 
+        value={formData.name}
+        onChange={(e) => {
+          setFormData(prev => ({ ...prev, name: e.target.value }));
+          setIsSaved(false);
+        }}
+      />
+      <button onClick={() => setIsSaved(true)}>Save</button>
+    </form>
+  );
+};
+
+// Editor protection
+const TextEditor = () => {
+  const [content, setContent] = useState('');
+  const [lastSaved, setLastSaved] = useState('');
+  
+  const hasUnsavedChanges = content !== lastSaved;
+  useUnsavedChangeAlert(hasUnsavedChanges);
+  
+  return (
+    <textarea 
+      value={content}
+      onChange={(e) => setContent(e.target.value)}
+    />
+  );
+};
+
+// Settings page protection
+const SettingsPage = () => {
+  const [settings, setSettings] = useState(initialSettings);
+  const [isDirty, setIsDirty] = useState(false);
+  
+  useUnsavedChangeAlert(isDirty);
+  
+  const handleSettingChange = (key, value) => {
+    setSettings(prev => ({ ...prev, [key]: value }));
+    setIsDirty(true);
+  };
+  
+  return <div>Settings form...</div>;
+};`}
+          </pre>
+        </div>
+      </div>
+
+      <div className="test-section">
         <h3>Real-world Use Cases</h3>
         <div className="grid">
           <div className="result-box">

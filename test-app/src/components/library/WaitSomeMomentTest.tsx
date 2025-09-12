@@ -91,6 +91,100 @@ export default function WaitSomeMomentTest() {
       </div>
 
       <div className="test-section">
+        <h3>📚 Implementation Documentation</h3>
+        <div className="demo-output">
+          <h4>API Reference</h4>
+          <pre
+            style={{
+              backgroundColor: "#1a1a1a",
+              padding: "1rem",
+              borderRadius: "4px",
+              textAlign: "left",
+            }}
+          >
+            {`import { lib } from 'mukul-react-hooks';
+
+lib.waitSomeMoment(milliseconds); // BLOCKING - Use with caution!`}
+          </pre>
+
+          <h4>Parameters</h4>
+          <ul style={{ textAlign: "left", margin: "1rem 0" }}>
+            <li>
+              <strong>ms</strong> (number): Number of milliseconds to wait (blocks main thread)
+            </li>
+          </ul>
+
+          <h4>Return Value</h4>
+          <ul style={{ textAlign: "left", margin: "1rem 0" }}>
+            <li>
+              <strong>void</strong>: No return value, blocks execution for specified time
+            </li>
+          </ul>
+
+          <h4>⚠️ Important Warning</h4>
+          <div
+            style={{
+              backgroundColor: "#2a1a1a",
+              padding: "1rem",
+              borderRadius: "4px",
+              border: "1px solid #ff6b6b",
+              margin: "1rem 0",
+            }}
+          >
+            <p style={{ color: "#ff6b6b", margin: 0 }}>
+              <strong>CAUTION:</strong> This function blocks the main thread and can freeze the UI.
+              Use <code>lib.asyncDelay()</code> for non-blocking delays instead.
+            </p>
+          </div>
+
+          <h4>Usage Examples</h4>
+          <pre
+            style={{
+              backgroundColor: "#1a1a1a",
+              padding: "1rem",
+              borderRadius: "4px",
+              textAlign: "left",
+              fontSize: "0.875rem",
+            }}
+          >
+            {`// ❌ AVOID - Blocks UI
+const handleClick = () => {
+  setLoading(true);
+  lib.waitSomeMoment(2000); // UI freezes for 2 seconds!
+  setLoading(false);
+};
+
+// ✅ BETTER - Use asyncDelay instead
+const handleClickAsync = async () => {
+  setLoading(true);
+  await lib.asyncDelay(2000); // Non-blocking
+  setLoading(false);
+};
+
+// Limited use case: Testing/debugging
+const debugFunction = () => {
+  console.log('Before wait');
+  lib.waitSomeMoment(1000); // Only for testing!
+  console.log('After wait');
+};
+
+// Synchronous processing with forced delay
+const processItemsWithDelay = (items) => {
+  return items.map((item, index) => {
+    if (index > 0) {
+      lib.waitSomeMoment(100); // Small delay between items
+    }
+    return processItem(item);
+  });
+};
+
+// ⚠️ Remember: This blocks the entire browser tab!
+// Use only when absolutely necessary and with short delays`}
+          </pre>
+        </div>
+      </div>
+
+      <div className="test-section">
         <h3>Real-world Use Cases</h3>
         <div className="grid">
           <div className="result-box">

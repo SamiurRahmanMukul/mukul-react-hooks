@@ -109,6 +109,81 @@ export default function UseIsTopOfPageTest() {
       </div>
 
       <div className="test-section">
+        <h3>📚 Implementation Documentation</h3>
+        <div className="demo-output">
+          <h4>API Reference</h4>
+          <pre
+            style={{
+              backgroundColor: "#1a1a1a",
+              padding: "1rem",
+              borderRadius: "4px",
+              textAlign: "left",
+            }}
+          >
+            {`import { useIsTopOfPage } from 'mukul-react-hooks';
+
+const isTopOfPage = useIsTopOfPage();`}
+          </pre>
+
+          <h4>Return Value</h4>
+          <ul style={{ textAlign: "left", margin: "1rem 0" }}>
+            <li>
+              <strong>isTopOfPage</strong> (boolean): True when scroll position is at the top (0),
+              false otherwise
+            </li>
+          </ul>
+
+          <h4>Usage Examples</h4>
+          <pre
+            style={{
+              backgroundColor: "#1a1a1a",
+              padding: "1rem",
+              borderRadius: "4px",
+              textAlign: "left",
+              fontSize: "0.875rem",
+            }}
+          >
+            {`// Back to top button
+const BackToTopButton = () => {
+  const isTopOfPage = useIsTopOfPage();
+  
+  return (
+    <>
+      {!isTopOfPage && (
+        <button onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
+          Back to Top
+        </button>
+      )}
+    </>
+  );
+};
+
+// Sticky header with dynamic styling
+const Header = () => {
+  const isTopOfPage = useIsTopOfPage();
+  
+  return (
+    <header className={isTopOfPage ? 'header-transparent' : 'header-solid'}>
+      Navigation
+    </header>
+  );
+};
+
+// Conditional content rendering
+const ScrollIndicator = () => {
+  const isTopOfPage = useIsTopOfPage();
+  
+  return (
+    <div>
+      {isTopOfPage ? 'At the top!' : 'Scroll up to return to top'}
+    </div>
+  );
+};`}
+          </pre>
+        </div>
+      </div>
+
+      <div className="test-section">
         <h3>Hook Implementation Notes</h3>
         <div className="demo-output">
           <p>

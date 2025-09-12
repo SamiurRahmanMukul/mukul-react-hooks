@@ -222,6 +222,90 @@ export default function DownloadStringTest() {
       </div>
 
       <div className="test-section">
+        <h3>📚 Implementation Documentation</h3>
+        <div className="demo-output">
+          <h4>API Reference</h4>
+          <pre
+            style={{
+              backgroundColor: "#1a1a1a",
+              padding: "1rem",
+              borderRadius: "4px",
+              textAlign: "left",
+            }}
+          >
+            {`import { lib } from 'mukul-react-hooks';
+
+lib.downloadString(data, filename, extension);`}
+          </pre>
+
+          <h4>Parameters</h4>
+          <ul style={{ textAlign: "left", margin: "1rem 0" }}>
+            <li>
+              <strong>data</strong> (string): String content to download
+            </li>
+            <li>
+              <strong>filename</strong> (string): Name of the file (without extension)
+            </li>
+            <li>
+              <strong>ext</strong> (string): File extension
+            </li>
+          </ul>
+
+          <h4>Return Value</h4>
+          <ul style={{ textAlign: "left", margin: "1rem 0" }}>
+            <li>
+              <strong>void</strong>: Triggers browser download, no return value
+            </li>
+          </ul>
+
+          <h4>Usage Examples</h4>
+          <pre
+            style={{
+              backgroundColor: "#1a1a1a",
+              padding: "1rem",
+              borderRadius: "4px",
+              textAlign: "left",
+              fontSize: "0.875rem",
+            }}
+          >
+            {`// Export JSON data
+const exportData = (userData) => {
+  const jsonData = JSON.stringify(userData, null, 2);
+  lib.downloadString(jsonData, 'user-data', 'json');
+};
+
+// Export CSV report
+const exportCSV = (tableData) => {
+  const csvContent = tableData.map(row => row.join(',')).join('\\n');
+  lib.downloadString(csvContent, 'report', 'csv');
+};
+
+// Save text content
+const saveNote = (content) => {
+  lib.downloadString(content, 'my-note', 'txt');
+};
+
+// Export configuration
+const exportConfig = (settings) => {
+  const configXML = generateXMLFromSettings(settings);
+  lib.downloadString(configXML, 'app-config', 'xml');
+};
+
+// Download log files
+const downloadLogs = (logEntries) => {
+  const logContent = logEntries.join('\\n');
+  lib.downloadString(logContent, 'application-logs', 'log');
+};
+
+// Export code snippets
+const exportCode = (codeContent, language) => {
+  lib.downloadString(codeContent, 'code-snippet', language);
+};`}
+          </pre>
+        </div>
+      </div>
+
+      <div className="test-section">
         <h3>Real-world Use Cases</h3>
         <div className="grid">
           <div className="result-box">

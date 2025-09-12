@@ -139,7 +139,7 @@ function HomePage() {
       </div>
 
       <div className="card">
-        <h2>🎣 React Hooks Tests</h2>
+        <h2>🎣 React Hooks Tests & Documentation</h2>
         <div className="nav-links">
           {hookTests.map((test) => (
             <Link key={test.path} to={test.path} className="nav-link">
@@ -150,7 +150,7 @@ function HomePage() {
       </div>
 
       <div className="card">
-        <h2>📚 Library Functions Tests</h2>
+        <h2>📚 Library Functions Tests & Documentation</h2>
         <div className="nav-links">
           {libraryTests.map((test) => (
             <Link key={test.path} to={test.path} className="nav-link">

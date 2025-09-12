@@ -73,6 +73,102 @@ export default function TruncateStringMiddleTest() {
       </div>
 
       <div className="test-section">
+        <h3>📚 Implementation Documentation</h3>
+        <div className="demo-output">
+          <h4>API Reference</h4>
+          <pre
+            style={{
+              backgroundColor: "#1a1a1a",
+              padding: "1rem",
+              borderRadius: "4px",
+              textAlign: "left",
+            }}
+          >
+            {`import { lib } from 'mukul-react-hooks';
+
+const truncated = lib.truncateStringMiddle(string, maxLength, separator);`}
+          </pre>
+
+          <h4>Parameters</h4>
+          <ul style={{ textAlign: "left", margin: "1rem 0" }}>
+            <li>
+              <strong>str</strong> (string): String to truncate
+            </li>
+            <li>
+              <strong>max</strong> (number, optional): Maximum length (default: 10)
+            </li>
+            <li>
+              <strong>sep</strong> (string, optional): Separator string (default: "...")
+            </li>
+          </ul>
+
+          <h4>Return Value</h4>
+          <ul style={{ textAlign: "left", margin: "1rem 0" }}>
+            <li>
+              <strong>string</strong>: Original string or truncated string with separator in the
+              middle
+            </li>
+          </ul>
+
+          <h4>Usage Examples</h4>
+          <pre
+            style={{
+              backgroundColor: "#1a1a1a",
+              padding: "1rem",
+              borderRadius: "4px",
+              textAlign: "left",
+              fontSize: "0.875rem",
+            }}
+          >
+            {`// File path display
+const FilePathDisplay = ({ path }) => (
+  <span title={path}>
+    {lib.truncateStringMiddle(path, 30)}
+  </span>
+);
+// "/very/long/path/to/file.txt" -> "/very/long...file.txt"
+
+// URL display
+const URLPreview = ({ url }) => (
+  <a href={url}>
+    {lib.truncateStringMiddle(url, 40, '...')}
+  </a>
+);
+
+// Hash/ID display
+const HashDisplay = ({ hash }) => (
+  <code>
+    {lib.truncateStringMiddle(hash, 16, '...')}
+  </code>
+);
+// "abc123def456ghi789" -> "abc123...hi789"
+
+// Custom separator
+const CustomTruncate = ({ text }) => (
+  <span>
+    {lib.truncateStringMiddle(text, 20, ' [...] ')}
+  </span>
+);
+
+// Email display
+const EmailDisplay = ({ email }) => (
+  <span>
+    {lib.truncateStringMiddle(email, 25)}
+  </span>
+);
+// "verylongemail@domain.com" -> "verylong...domain.com"
+
+// Breadcrumb items
+const BreadcrumbItem = ({ item }) => (
+  <span>
+    {lib.truncateStringMiddle(item, 15)}
+  </span>
+);`}
+          </pre>
+        </div>
+      </div>
+
+      <div className="test-section">
         <h3>Real-world Use Cases</h3>
         <div className="grid">
           <div className="result-box">

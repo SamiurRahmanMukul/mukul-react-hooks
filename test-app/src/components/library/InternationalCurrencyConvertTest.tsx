@@ -49,6 +49,108 @@ export default function InternationalCurrencyConvertTest() {
       </div>
 
       <div className="test-section">
+        <h3>📚 Implementation Documentation</h3>
+        <div className="demo-output">
+          <h4>API Reference</h4>
+          <pre
+            style={{
+              backgroundColor: "#1a1a1a",
+              padding: "1rem",
+              borderRadius: "4px",
+              textAlign: "left",
+            }}
+          >
+            {`import { lib } from 'mukul-react-hooks';
+
+const abbreviated = lib.internationalCurrencyConvert(value);`}
+          </pre>
+
+          <h4>Parameters</h4>
+          <ul style={{ textAlign: "left", margin: "1rem 0" }}>
+            <li>
+              <strong>labelValue</strong> (string | number): Numeric value to abbreviate
+            </li>
+          </ul>
+
+          <h4>Return Value</h4>
+          <ul style={{ textAlign: "left", margin: "1rem 0" }}>
+            <li>
+              <strong>string | number</strong>: Abbreviated string (e.g., "1.2K", "5M", "2B") or
+              original number if &lt; 1000
+            </li>
+          </ul>
+
+          <h4>Abbreviation Rules</h4>
+          <ul style={{ textAlign: "left", margin: "1rem 0" }}>
+            <li>
+              <strong>≥ 1,000,000,000:</strong> "B" (Billions)
+            </li>
+            <li>
+              <strong>≥ 1,000,000:</strong> "M" (Millions)
+            </li>
+            <li>
+              <strong>≥ 1,000:</strong> "K" (Thousands)
+            </li>
+            <li>
+              <strong>&lt; 1,000:</strong> Original number
+            </li>
+          </ul>
+
+          <h4>Usage Examples</h4>
+          <pre
+            style={{
+              backgroundColor: "#1a1a1a",
+              padding: "1rem",
+              borderRadius: "4px",
+              textAlign: "left",
+              fontSize: "0.875rem",
+            }}
+          >
+            {`// Social media metrics
+const SocialStats = ({ followers, likes, views }) => (
+  <div className="stats">
+    <span>{lib.internationalCurrencyConvert(followers)} followers</span>
+    <span>{lib.internationalCurrencyConvert(likes)} likes</span>
+    <span>{lib.internationalCurrencyConvert(views)} views</span>
+  </div>
+);
+
+// Financial dashboard
+const RevenueCard = ({ revenue }) => (
+  <div className="metric">
+    <h3>$\{lib.internationalCurrencyConvert(revenue)\}</h3>
+    <p>Total Revenue</p>
+  </div>
+);
+
+// Chart labels
+const formatChartValue = (value) => {
+  return lib.internationalCurrencyConvert(value);
+};
+// 1500000 -> "2M"
+// 750000 -> "750K"
+// 500 -> 500
+
+// File size display
+const FileSizeDisplay = ({ bytes }) => (
+  <span>
+    {lib.internationalCurrencyConvert(bytes)} bytes
+  </span>
+);
+
+// Analytics dashboard
+const AnalyticsWidget = ({ data }) => (
+  <div>
+    <p>Users: {lib.internationalCurrencyConvert(data.users)}</p>
+    <p>Sessions: {lib.internationalCurrencyConvert(data.sessions)}</p>
+    <p>Page Views: {lib.internationalCurrencyConvert(data.pageViews)}</p>
+  </div>
+);`}
+          </pre>
+        </div>
+      </div>
+
+      <div className="test-section">
         <h3>Real-world Use Cases</h3>
         <div className="grid">
           <div className="result-box">

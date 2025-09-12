@@ -175,6 +175,89 @@ export default function UseMediaQueryTest() {
       </div>
 
       <div className="test-section">
+        <h3>📚 Implementation Documentation</h3>
+        <div className="demo-output">
+          <h4>API Reference</h4>
+          <pre
+            style={{
+              backgroundColor: "#1a1a1a",
+              padding: "1rem",
+              borderRadius: "4px",
+              textAlign: "left",
+            }}
+          >
+            {`import { useMediaQuery } from 'mukul-react-hooks';
+
+const matches = useMediaQuery(query);`}
+          </pre>
+
+          <h4>Parameters</h4>
+          <ul style={{ textAlign: "left", margin: "1rem 0" }}>
+            <li>
+              <strong>query</strong> (string): CSS media query string to test
+            </li>
+          </ul>
+
+          <h4>Return Value</h4>
+          <ul style={{ textAlign: "left", margin: "1rem 0" }}>
+            <li>
+              <strong>matches</strong> (boolean): True if the media query matches, false otherwise
+            </li>
+          </ul>
+
+          <h4>Usage Examples</h4>
+          <pre
+            style={{
+              backgroundColor: "#1a1a1a",
+              padding: "1rem",
+              borderRadius: "4px",
+              textAlign: "left",
+              fontSize: "0.875rem",
+            }}
+          >
+            {`// Responsive design
+const ResponsiveComponent = () => {
+  const isMobile = useMediaQuery('(max-width: 768px)');
+  const isDarkMode = useMediaQuery('(prefers-color-scheme: dark)');
+  
+  return (
+    <div className={isDarkMode ? 'dark-theme' : 'light-theme'}>
+      {isMobile ? <MobileLayout /> : <DesktopLayout />}
+    </div>
+  );
+};
+
+// Multiple breakpoints
+const MultiBreakpoint = () => {
+  const isSmall = useMediaQuery('(max-width: 480px)');
+  const isMedium = useMediaQuery('(min-width: 481px) and (max-width: 768px)');
+  const isLarge = useMediaQuery('(min-width: 769px)');
+  
+  return (
+    <div>
+      {isSmall && <SmallScreen />}
+      {isMedium && <MediumScreen />}
+      {isLarge && <LargeScreen />}
+    </div>
+  );
+};
+
+// Feature detection
+const TouchOptimized = () => {
+  const hasHover = useMediaQuery('(hover: hover)');
+  const isTouch = useMediaQuery('(pointer: coarse)');
+  
+  return (
+    <button className={hasHover ? 'hover-effects' : 'touch-friendly'}>
+      {isTouch ? 'Tap me' : 'Click me'}
+    </button>
+  );
+};`}
+          </pre>
+        </div>
+      </div>
+
+      <div className="test-section">
         <h3>Real-world Use Cases</h3>
         <div className="grid">
           <div className="result-box">

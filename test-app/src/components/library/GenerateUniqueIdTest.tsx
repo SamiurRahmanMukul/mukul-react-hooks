@@ -186,6 +186,95 @@ export default function GenerateUniqueIdTest() {
       )}
 
       <div className="test-section">
+        <h3>📚 Implementation Documentation</h3>
+        <div className="demo-output">
+          <h4>API Reference</h4>
+          <pre
+            style={{
+              backgroundColor: "#1a1a1a",
+              padding: "1rem",
+              borderRadius: "4px",
+              textAlign: "left",
+            }}
+          >
+            {`import { lib } from 'mukul-react-hooks';
+
+const uniqueId = lib.generateUniqueId();`}
+          </pre>
+
+          <h4>Parameters</h4>
+          <ul style={{ textAlign: "left", margin: "1rem 0" }}>
+            <li>
+              <strong>None</strong>: This function takes no parameters
+            </li>
+          </ul>
+
+          <h4>Return Value</h4>
+          <ul style={{ textAlign: "left", margin: "1rem 0" }}>
+            <li>
+              <strong>string</strong>: Unique identifier in format "uuid-{timestamp}-{hexString}"
+            </li>
+          </ul>
+
+          <h4>Usage Examples</h4>
+          <pre
+            style={{
+              backgroundColor: "#1a1a1a",
+              padding: "1rem",
+              borderRadius: "4px",
+              textAlign: "left",
+              fontSize: "0.875rem",
+            }}
+          >
+            {`// React component keys
+const TodoList = ({ todos }) => (
+  <ul>
+    {todos.map(todo => (
+      <li key={lib.generateUniqueId()}>
+        {todo.text}
+      </li>
+    ))}
+  </ul>
+);
+
+// Form field IDs
+const FormField = ({ label, type }) => {
+  const fieldId = lib.generateUniqueId();
+  return (
+    <div>
+      <label htmlFor={fieldId}>{label}</label>
+      <input id={fieldId} type={type} />
+    </div>
+  );
+};
+
+// Temporary object IDs
+const createTempUser = (name) => ({
+  id: lib.generateUniqueId(),
+  name,
+  isTemporary: true
+});
+
+// File upload tracking
+const handleFileUpload = (files) => {
+  return files.map(file => ({
+    id: lib.generateUniqueId(),
+    file,
+    status: 'pending'
+  }));
+};
+
+// Session tracking
+const createSession = () => ({
+  sessionId: lib.generateUniqueId(),
+  startTime: Date.now(),
+  isActive: true
+});`}
+          </pre>
+        </div>
+      </div>
+
+      <div className="test-section">
         <h3>Real-world Use Cases</h3>
         <div className="grid">
           {useCaseExamples.map((useCase, index) => (

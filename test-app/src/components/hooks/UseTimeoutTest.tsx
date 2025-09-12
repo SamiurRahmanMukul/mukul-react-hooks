@@ -170,6 +170,99 @@ export default function UseTimeoutTest() {
       </div>
 
       <div className="test-section">
+        <h3>📚 Implementation Documentation</h3>
+        <div className="demo-output">
+          <h4>API Reference</h4>
+          <pre
+            style={{
+              backgroundColor: "#1a1a1a",
+              padding: "1rem",
+              borderRadius: "4px",
+              textAlign: "left",
+            }}
+          >
+            {`import { useTimeout } from 'mukul-react-hooks';
+
+const [triggerTimeout] = useTimeout(callback, delay);`}
+          </pre>
+
+          <h4>Parameters</h4>
+          <ul style={{ textAlign: "left", margin: "1rem 0" }}>
+            <li>
+              <strong>callback</strong> (function): Function to execute after the delay
+            </li>
+            <li>
+              <strong>delay</strong> (number): Delay in milliseconds before executing callback
+            </li>
+          </ul>
+
+          <h4>Return Value</h4>
+          <ul style={{ textAlign: "left", margin: "1rem 0" }}>
+            <li>
+              <strong>triggerTimeout</strong> (function): Function to start/restart the timeout
+            </li>
+          </ul>
+
+          <h4>Usage Examples</h4>
+          <pre
+            style={{
+              backgroundColor: "#1a1a1a",
+              padding: "1rem",
+              borderRadius: "4px",
+              textAlign: "left",
+              fontSize: "0.875rem",
+            }}
+          >
+            {`// Basic timeout
+const NotificationComponent = () => {
+  const [message, setMessage] = useState('');
+  const [showTimeout] = useTimeout(() => {
+    setMessage('');
+  }, 3000);
+  
+  const showNotification = (text) => {
+    setMessage(text);
+    showTimeout(); // Auto-hide after 3 seconds
+  };
+  
+  return <div>{message && <div>{message}</div>}</div>;
+};
+
+// Debounced search
+const SearchComponent = () => {
+  const [query, setQuery] = useState('');
+  const [searchTimeout] = useTimeout(() => {
+    // Perform search API call
+    performSearch(query);
+  }, 500);
+  
+  const handleInputChange = (e) => {
+    setQuery(e.target.value);
+    searchTimeout(); // Restart timeout on each keystroke
+  };
+  
+  return <input value={query} onChange={handleInputChange} />;
+};
+
+// Auto-save functionality
+const AutoSaveEditor = () => {
+  const [content, setContent] = useState('');
+  const [autoSave] = useTimeout(() => {
+    saveToServer(content);
+  }, 2000);
+  
+  const handleContentChange = (newContent) => {
+    setContent(newContent);
+    autoSave(); // Save after 2 seconds of inactivity
+  };
+  
+  return <textarea value={content} onChange={handleContentChange} />;
+};`}
+          </pre>
+        </div>
+      </div>
+
+      <div className="test-section">
         <h3>Real-world Use Cases</h3>
         <div className="grid">
           <div className="result-box">

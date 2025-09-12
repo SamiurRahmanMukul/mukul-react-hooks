@@ -239,6 +239,105 @@ setTheme({ primary: themeColor })`,
       </div>
 
       <div className="test-section">
+        <h3>📚 Implementation Documentation</h3>
+        <div className="demo-output">
+          <h4>API Reference</h4>
+          <pre
+            style={{
+              backgroundColor: "#1a1a1a",
+              padding: "1rem",
+              borderRadius: "4px",
+              textAlign: "left",
+            }}
+          >
+            {`import { lib } from 'mukul-react-hooks';
+
+const color = lib.randomColor();`}
+          </pre>
+
+          <h4>Parameters</h4>
+          <ul style={{ textAlign: "left", margin: "1rem 0" }}>
+            <li>
+              <strong>None</strong>: This function takes no parameters
+            </li>
+          </ul>
+
+          <h4>Return Value</h4>
+          <ul style={{ textAlign: "left", margin: "1rem 0" }}>
+            <li>
+              <strong>string</strong>: Random hexadecimal color (e.g., "#FF5733")
+            </li>
+          </ul>
+
+          <h4>Usage Examples</h4>
+          <pre
+            style={{
+              backgroundColor: "#1a1a1a",
+              padding: "1rem",
+              borderRadius: "4px",
+              textAlign: "left",
+              fontSize: "0.875rem",
+            }}
+          >
+            {`// Dynamic styling
+const ColorfulButton = () => {
+  const [bgColor, setBgColor] = useState(lib.randomColor());
+  
+  return (
+    <button 
+      style={{ backgroundColor: bgColor }}
+      onClick={() => setBgColor(lib.randomColor())}
+    >
+      Click for new color!
+    </button>
+  );
+};
+
+// Avatar placeholders
+const UserAvatar = ({ name, hasImage }) => {
+  const bgColor = hasImage ? 'transparent' : lib.randomColor();
+  
+  return (
+    <div 
+      className="avatar"
+      style={{ backgroundColor: bgColor }}
+    >
+      {!hasImage && name.charAt(0)}
+    </div>
+  );
+};
+
+// Chart data visualization
+const generateChartData = (labels) => {
+  return labels.map(label => ({
+    label,
+    color: lib.randomColor(),
+    value: Math.random() * 100
+  }));
+};
+
+// Tag colors
+const TagComponent = ({ text }) => (
+  <span 
+    className="tag"
+    style={{ 
+      backgroundColor: lib.randomColor(),
+      color: 'white'
+    }}
+  >
+    {text}
+  </span>
+);
+
+// Generate color palette
+const generatePalette = (count) => {
+  return Array.from({ length: count }, () => lib.randomColor());
+};`}
+          </pre>
+        </div>
+      </div>
+
+      <div className="test-section">
         <h3>Real-world Use Cases</h3>
         <div className="grid">
           {realWorldExamples.map((example, index) => (

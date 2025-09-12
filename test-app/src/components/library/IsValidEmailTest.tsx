@@ -224,6 +224,113 @@ if (!isValid) {
       </div>
 
       <div className="test-section">
+        <h3>📚 Implementation Documentation</h3>
+        <div className="demo-output">
+          <h4>API Reference</h4>
+          <pre
+            style={{
+              backgroundColor: "#1a1a1a",
+              padding: "1rem",
+              borderRadius: "4px",
+              textAlign: "left",
+            }}
+          >
+            {`import { lib } from 'mukul-react-hooks';
+
+const isValid = lib.isValidEmail(email);`}
+          </pre>
+
+          <h4>Parameters</h4>
+          <ul style={{ textAlign: "left", margin: "1rem 0" }}>
+            <li>
+              <strong>email</strong> (string): Email address string to validate
+            </li>
+          </ul>
+
+          <h4>Return Value</h4>
+          <ul style={{ textAlign: "left", margin: "1rem 0" }}>
+            <li>
+              <strong>boolean</strong>: True if email format is valid, false otherwise
+            </li>
+          </ul>
+
+          <h4>Usage Examples</h4>
+          <pre
+            style={{
+              backgroundColor: "#1a1a1a",
+              padding: "1rem",
+              borderRadius: "4px",
+              textAlign: "left",
+              fontSize: "0.875rem",
+            }}
+          >
+            {`// Form validation
+const EmailForm = () => {
+  const [email, setEmail] = useState('');
+  const [error, setError] = useState('');
+  
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (!lib.isValidEmail(email)) {
+      setError('Please enter a valid email address');
+      return;
+    }
+    // Process valid email
+    submitForm({ email });
+  };
+  
+  return (
+    <form onSubmit={handleSubmit}>
+      <input 
+        type="email" 
+        value={email}
+        onChange={(e) => setEmail(e.target.value)}
+        className={!lib.isValidEmail(email) && email ? 'error' : ''}
+      />
+      {error && <span className="error">{error}</span>}
+      <button type="submit">Submit</button>
+    </form>
+  );
+};
+
+// Real-time validation
+const EmailInput = () => {
+  const [email, setEmail] = useState('');
+  const isValid = lib.isValidEmail(email);
+  
+  return (
+    <div>
+      <input 
+        value={email}
+        onChange={(e) => setEmail(e.target.value)}
+        placeholder="Enter email address"
+      />
+      {email && (
+        <span className={isValid ? 'valid' : 'invalid'}>
+          {isValid ? '✓ Valid email' : '✗ Invalid email format'}
+        </span>
+      )}
+    </div>
+  );
+};
+
+// Bulk email validation
+const validateEmailList = (emails) => {
+  return emails.map(email => ({
+    email,
+    isValid: lib.isValidEmail(email)
+  }));
+};
+
+// Filter valid emails
+const getValidEmails = (emailList) => {
+  return emailList.filter(email => lib.isValidEmail(email));
+};`}
+          </pre>
+        </div>
+      </div>
+
+      <div className="test-section">
         <h3>Real-world Use Cases</h3>
         <div className="grid">
           {realWorldExamples.map((example, index) => (

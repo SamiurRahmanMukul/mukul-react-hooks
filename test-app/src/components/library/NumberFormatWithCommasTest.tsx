@@ -185,6 +185,80 @@ return <span>Market Cap: $\{marketCap}</span>`,
       </div>
 
       <div className="test-section">
+        <h3>📚 Implementation Documentation</h3>
+        <div className="demo-output">
+          <h4>API Reference</h4>
+          <pre
+            style={{
+              backgroundColor: "#1a1a1a",
+              padding: "1rem",
+              borderRadius: "4px",
+              textAlign: "left",
+            }}
+          >
+            {`import { lib } from 'mukul-react-hooks';
+
+const formatted = lib.numberFormatWithCommas(number);`}
+          </pre>
+
+          <h4>Parameters</h4>
+          <ul style={{ textAlign: "left", margin: "1rem 0" }}>
+            <li>
+              <strong>x</strong> (string | number): Number to format with comma separators
+            </li>
+          </ul>
+
+          <h4>Return Value</h4>
+          <ul style={{ textAlign: "left", margin: "1rem 0" }}>
+            <li>
+              <strong>string</strong>: Formatted number string with commas as thousands separators
+            </li>
+          </ul>
+
+          <h4>Usage Examples</h4>
+          <pre
+            style={{
+              backgroundColor: "#1a1a1a",
+              padding: "1rem",
+              borderRadius: "4px",
+              textAlign: "left",
+              fontSize: "0.875rem",
+            }}
+          >
+            {`// Basic number formatting
+const price = 1234567.89;
+const formatted = lib.numberFormatWithCommas(price);
+// Result: "1,234,567.89"
+
+// In React components
+const PriceDisplay = ({ amount }) => (
+  <span className="price">
+    ${lib.numberFormatWithCommas(amount)}
+  </span>
+);
+
+// Statistics display
+const StatsCard = ({ label, value }) => (
+  <div className="stat">
+    <h3>{lib.numberFormatWithCommas(value)}</h3>
+    <p>{label}</p>
+  </div>
+);
+
+// Handle string inputs
+const userInput = "9876543";
+const result = lib.numberFormatWithCommas(userInput);
+// Result: "9,876,543"
+
+// Large numbers
+const views = 1000000;
+const formattedViews = lib.numberFormatWithCommas(views);
+// Result: "1,000,000"`}
+          </pre>
+        </div>
+      </div>
+
+      <div className="test-section">
         <h3>Real-world Use Cases</h3>
         <div className="grid">
           {realWorldExamples.map((example, index) => (

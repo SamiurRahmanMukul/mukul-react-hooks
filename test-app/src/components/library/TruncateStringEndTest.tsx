@@ -75,6 +75,93 @@ export default function TruncateStringEndTest() {
       </div>
 
       <div className="test-section">
+        <h3>📚 Implementation Documentation</h3>
+        <div className="demo-output">
+          <h4>API Reference</h4>
+          <pre
+            style={{
+              backgroundColor: "#1a1a1a",
+              padding: "1rem",
+              borderRadius: "4px",
+              textAlign: "left",
+            }}
+          >
+            {`import { lib } from 'mukul-react-hooks';
+
+const truncated = lib.truncateStringEnd(string, maxLength);`}
+          </pre>
+
+          <h4>Parameters</h4>
+          <ul style={{ textAlign: "left", margin: "1rem 0" }}>
+            <li>
+              <strong>str</strong> (string): String to truncate
+            </li>
+            <li>
+              <strong>maxLength</strong> (number): Maximum allowed length before truncation
+            </li>
+          </ul>
+
+          <h4>Return Value</h4>
+          <ul style={{ textAlign: "left", margin: "1rem 0" }}>
+            <li>
+              <strong>string</strong>: Original string or truncated string with "..." appended
+            </li>
+          </ul>
+
+          <h4>Usage Examples</h4>
+          <pre
+            style={{
+              backgroundColor: "#1a1a1a",
+              padding: "1rem",
+              borderRadius: "4px",
+              textAlign: "left",
+              fontSize: "0.875rem",
+            }}
+          >
+            {`// Basic truncation
+const longText = "This is a very long text that needs truncation";
+const short = lib.truncateStringEnd(longText, 20);
+// Result: "This is a very long..."
+
+// Card titles
+const ArticleCard = ({ title, content }) => (
+  <div className="card">
+    <h3>{lib.truncateStringEnd(title, 50)}</h3>
+    <p>{lib.truncateStringEnd(content, 100)}</p>
+  </div>
+);
+
+// Navigation breadcrumbs
+const Breadcrumb = ({ path }) => (
+  <nav>
+    {path.map(item => (
+      <span key={item}>
+        {lib.truncateStringEnd(item, 15)}
+      </span>
+    ))}
+  </nav>
+);
+
+// Table cell content
+const DataTable = ({ rows }) => (
+  <table>
+    {rows.map(row => (
+      <tr key={row.id}>
+        <td>{lib.truncateStringEnd(row.description, 30)}</td>
+      </tr>
+    ))}
+  </table>
+);
+
+// No truncation needed
+const shortText = "Short";
+const result = lib.truncateStringEnd(shortText, 20);
+// Result: "Short" (unchanged)`}
+          </pre>
+        </div>
+      </div>
+
+      <div className="test-section">
         <h3>Real-world Use Cases</h3>
         <div className="grid">
           <div className="result-box">

@@ -171,6 +171,88 @@ export default function AsyncDelayTest() {
       </div>
 
       <div className="test-section">
+        <h3>📚 Implementation Documentation</h3>
+        <div className="demo-output">
+          <h4>API Reference</h4>
+          <pre
+            style={{
+              backgroundColor: "#1a1a1a",
+              padding: "1rem",
+              borderRadius: "4px",
+              textAlign: "left",
+            }}
+          >
+            {`import { lib } from 'mukul-react-hooks';
+
+await lib.asyncDelay(milliseconds);`}
+          </pre>
+
+          <h4>Parameters</h4>
+          <ul style={{ textAlign: "left", margin: "1rem 0" }}>
+            <li>
+              <strong>ms</strong> (number): Number of milliseconds to delay
+            </li>
+          </ul>
+
+          <h4>Return Value</h4>
+          <ul style={{ textAlign: "left", margin: "1rem 0" }}>
+            <li>
+              <strong>Promise&lt;void&gt;</strong>: Promise that resolves after the specified delay
+            </li>
+          </ul>
+
+          <h4>Usage Examples</h4>
+          <pre
+            style={{
+              backgroundColor: "#1a1a1a",
+              padding: "1rem",
+              borderRadius: "4px",
+              textAlign: "left",
+              fontSize: "0.875rem",
+            }}
+          >
+            {`// Basic delay
+const handleSubmit = async () => {
+  setLoading(true);
+  await lib.asyncDelay(2000); // Wait 2 seconds
+  setLoading(false);
+};
+
+// Sequential operations with delays
+const animateSequence = async () => {
+  setStep(1);
+  await lib.asyncDelay(500);
+  setStep(2);
+  await lib.asyncDelay(500);
+  setStep(3);
+};
+
+// Simulating API calls
+const mockApiCall = async (data) => {
+  await lib.asyncDelay(1000); // Simulate network delay
+  return { success: true, data };
+};
+
+// Rate limiting
+const rateLimitedFunction = async () => {
+  await performAction();
+  await lib.asyncDelay(100); // Prevent too frequent calls
+  await performNextAction();
+};
+
+// Progressive loading
+const loadDataProgressively = async () => {
+  const chunks = [chunk1, chunk2, chunk3];
+  for (const chunk of chunks) {
+    await processChunk(chunk);
+    await lib.asyncDelay(200); // Small delay between chunks
+  }
+};`}
+          </pre>
+        </div>
+      </div>
+
+      <div className="test-section">
         <h3>Real-world Use Cases</h3>
         <div className="grid">
           <div className="result-box">
