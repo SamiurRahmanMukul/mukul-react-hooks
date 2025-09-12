@@ -4,7 +4,6 @@ import { useState } from "react";
 export default function AsyncDelayTest() {
   const [delay, setDelay] = useState(2000);
   const [isRunning, setIsRunning] = useState(false);
-  const [startTime, setStartTime] = useState<number>(0);
   const [actualDelay, setActualDelay] = useState<number>(0);
   const [logs, setLogs] = useState<string[]>([]);
 
@@ -16,7 +15,6 @@ export default function AsyncDelayTest() {
   const runSingleDelay = async () => {
     setIsRunning(true);
     const start = Date.now();
-    setStartTime(start);
     addLog(`Starting ${delay}ms delay...`);
 
     try {

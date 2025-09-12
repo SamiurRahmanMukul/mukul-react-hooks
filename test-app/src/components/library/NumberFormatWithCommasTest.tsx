@@ -43,28 +43,28 @@ export default function NumberFormatWithCommasTest() {
       description: "Format currency amounts for better readability",
       code: `const price = lib.numberFormatWithCommas(1234567.99)
 // Result: "1,234,567.99"
-return <span>$\{price}</span>`,
+return <span>$&#123;price&#125;</span>`,
     },
     {
       title: "📊 Statistics",
       description: "Display large statistical numbers in dashboards",
       code: `const visitors = lib.numberFormatWithCommas(2543891)
 // Result: "2,543,891"
-return <div>Total Visitors: \{visitors}</div>`,
+return <div>Total Visitors: &#123;visitors&#125;</div>`,
     },
     {
       title: "🏠 Real Estate",
       description: "Format property prices and measurements",
       code: `const price = lib.numberFormatWithCommas(875000)
 // Result: "875,000"
-return <span>$\{price}</span>`,
+return <span>$&#123;price&#125;</span>`,
     },
     {
       title: "📈 Financial Data",
       description: "Display stock prices, market caps, and financial metrics",
       code: `const marketCap = lib.numberFormatWithCommas(45600000000)
 // Result: "45,600,000,000"
-return <span>Market Cap: $\{marketCap}</span>`,
+return <span>Market Cap: $&#123;marketCap&#125;</span>`,
     },
   ];
 
@@ -233,15 +233,15 @@ const formatted = lib.numberFormatWithCommas(price);
 // In React components
 const PriceDisplay = ({ amount }) => (
   <span className="price">
-    ${lib.numberFormatWithCommas(amount)}
+    $&#123;lib.numberFormatWithCommas(amount)&#125;
   </span>
 );
 
 // Statistics display
 const StatsCard = ({ label, value }) => (
   <div className="stat">
-    <h3>{lib.numberFormatWithCommas(value)}</h3>
-    <p>{label}</p>
+    <h3>&#123;lib.numberFormatWithCommas(value)&#125;</h3>
+    <p>&#123;label&#125;</p>
   </div>
 );
 

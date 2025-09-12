@@ -1,5 +1,6 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Link, Route, Routes, useLocation } from "react-router-dom";
+import { highlightCodeBlocks } from "./utils/syntaxHighlighter";
 
 // Hook test components
 import UseFullScreenTest from "./components/hooks/UseFullScreenTest";
@@ -166,6 +167,15 @@ function HomePage() {
 function App() {
   const location = useLocation();
   const isHomePage = location.pathname === "/";
+
+  // Apply syntax highlighting when route changes
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      highlightCodeBlocks();
+    }, 100);
+
+    return () => clearTimeout(timer);
+  }, [location.pathname]);
 
   return (
     <div className="App">

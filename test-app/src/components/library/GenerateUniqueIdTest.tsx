@@ -212,7 +212,8 @@ const uniqueId = lib.generateUniqueId();`}
           <h4>Return Value</h4>
           <ul style={{ textAlign: "left", margin: "1rem 0" }}>
             <li>
-              <strong>string</strong>: Unique identifier in format "uuid-{timestamp}-{hexString}"
+              <strong>string</strong>: Unique identifier in format
+              "uuid-&#123;timestamp&#125;-&#123;hexString&#125;"
             </li>
           </ul>
 

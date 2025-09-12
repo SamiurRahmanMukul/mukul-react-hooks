@@ -54,8 +54,7 @@ npm install
 npm run test:dev
 
 # Or directly in test-app directory
-cd test-app
-npm run dev
+cd test-app && npm run dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) to view the application.
@@ -120,7 +119,7 @@ Navigate to any hook test (e.g., `/hooks/fullscreen`) to:
 
 ### Testing Library Functions
 
-Navigate to any library test (e.g., `/lib/randomcolor`) to:
+Navigate to any library test (e.g., `/lib/randomColor`) to:
 
 - Input custom parameters
 - See real-time results

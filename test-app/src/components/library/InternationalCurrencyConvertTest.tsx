@@ -118,7 +118,7 @@ const SocialStats = ({ followers, likes, views }) => (
 // Financial dashboard
 const RevenueCard = ({ revenue }) => (
   <div className="metric">
-    <h3>$\{lib.internationalCurrencyConvert(revenue)\}</h3>
+    <h3>$\${lib.internationalCurrencyConvert(revenue)}</h3>
     <p>Total Revenue</p>
   </div>
 );
