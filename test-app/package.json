@@ -10,10 +10,10 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "mukul-react-hooks": "^2.0.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "react-router-dom": "^6.15.0",
-    "mukul-react-hooks": "file:.."
+    "react-router-dom": "^6.15.0"
   },
   "devDependencies": {
     "@types/react": "^18.2.15",

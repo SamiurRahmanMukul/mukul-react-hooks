@@ -590,7 +590,6 @@ This project is licensed under the **MIT License** - see the [LICENSE.txt](LICEN
 
 [![Portfolio](https://img.shields.io/badge/🌐_Portfolio-srmukul.com-blue?style=for-the-badge)](https://srmukul.com)
 [![GitHub](https://img.shields.io/badge/GitHub-SamiurRahmanMukul-black?style=for-the-badge&logo=github)](https://github.com/SamiurRahmanMukul)
-[![Email](https://img.shields.io/badge/Email-contact@srmukul.com-red?style=for-the-badge&logo=gmail)](mailto:contact@srmukul.com)
 
 </div>
 
