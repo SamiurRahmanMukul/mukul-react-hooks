@@ -11,12 +11,12 @@ export default function WaitSomeMomentTest() {
     setLogs((prev) => [`[${timestamp}] ${message}`, ...prev].slice(0, 10));
   };
 
-  const executeWait = async () => {
+  const executeWait = () => {
     setIsWaiting(true);
     addLog(`Starting wait for ${duration}ms...`);
 
     try {
-      await lib.waitSomeMoment(duration);
+      lib.waitSomeMoment(duration);
       addLog(`Wait completed after ${duration}ms`);
     } catch (error) {
       addLog(`Wait failed: ${error}`);
@@ -36,8 +36,9 @@ export default function WaitSomeMomentTest() {
       <div className="test-section">
         <h3>Wait Controls</h3>
         <div className="form-group">
-          <label>Wait Duration (ms):</label>
+          <label htmlFor="waitDuration">Wait Duration (ms):</label>
           <input
+            id="waitDuration"
             type="number"
             value={duration}
             onChange={(e) => setDuration(Number(e.target.value))}
@@ -72,9 +73,9 @@ export default function WaitSomeMomentTest() {
             </p>
           ) : (
             <div style={{ maxHeight: "200px", overflowY: "auto" }}>
-              {logs.map((log, index) => (
+              {logs.map((log) => (
                 <div
-                  key={index}
+                  key={log}
                   style={{
                     padding: "0.25rem",
                     borderBottom: "1px solid #555",

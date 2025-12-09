@@ -1,5 +1,6 @@
 import { lib } from "mukul-react-hooks";
 import { useState } from "react";
+import { v4 } from "uuid";
 
 export default function ArrayToCommaSeparatedTextTest() {
   const [inputArray, setInputArray] = useState<string>('["apple", "banana", "cherry", "date"]');
@@ -21,7 +22,7 @@ export default function ArrayToCommaSeparatedTextTest() {
       return JSON.parse(input);
     } catch {
       // If JSON parsing fails, try to split by comma
-      return input.split(",").map((item) => item.trim().replace(/['"]/g, ""));
+      return input.split(",").map((item) => item.trim().split("'").join("").split('"').join(""));
     }
   };
 
@@ -75,10 +76,10 @@ export default function ArrayToCommaSeparatedTextTest() {
       <div className="test-section">
         <h3>Predefined Test Cases</h3>
         <div className="grid">
-          {predefinedArrays.map((testCase, index) => {
+          {predefinedArrays.map((testCase) => {
             const testResult = lib.arrayToCommaSeparatedText(testCase.value);
             return (
-              <div key={index} className="result-box">
+              <div key={v4()} className="result-box">
                 <h4>{testCase.name}</h4>
                 <p>
                   <strong>Array:</strong> {JSON.stringify(testCase.value)}

@@ -6,10 +6,10 @@
  * @returns {void}
  */
 export default function waitSomeMoment(ms: number): void {
-  const start = new Date().getTime();
+  const start = Date.now();
   let end = start;
 
   while (end < start + ms) {
-    end = new Date().getTime();
+    end = Date.now();
   }
 }

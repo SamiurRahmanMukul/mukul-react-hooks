@@ -1,5 +1,6 @@
 import { lib } from "mukul-react-hooks";
 import { useState } from "react";
+import { v4 } from "uuid";
 
 export default function TruncateStringMiddleTest() {
   const [inputString, setInputString] = useState("very_long_filename_with_important_extension.tsx");
@@ -18,8 +19,9 @@ export default function TruncateStringMiddleTest() {
       <div className="test-section">
         <h3>Middle Truncator</h3>
         <div className="form-group">
-          <label>Input String:</label>
+          <label htmlFor="middleInput">Input String:</label>
           <input
+            id="middleInput"
             type="text"
             value={inputString}
             onChange={(e) => setInputString(e.target.value)}
@@ -27,8 +29,9 @@ export default function TruncateStringMiddleTest() {
           />
         </div>
         <div className="form-group">
-          <label>Max Length:</label>
+          <label htmlFor="middleMaxLength">Max Length:</label>
           <input
+            id="middleMaxLength"
             type="number"
             value={maxLength}
             onChange={(e) => setMaxLength(Number(e.target.value))}
@@ -59,7 +62,7 @@ export default function TruncateStringMiddleTest() {
             "user@very-long-domain-name.com",
             "This is a very long sentence that needs middle truncation",
           ].map((text, index) => (
-            <div key={index} className="result-box">
+            <div key={v4()} className="result-box">
               <h4>Example {index + 1}</h4>
               <p>
                 <strong>Original:</strong> {text}

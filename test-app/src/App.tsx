@@ -197,10 +197,10 @@ function App() {
 
       <footer className="footer">
         <p className="footer__copy">
-          © 2025
+          © 2025{" "}
           <a href="https://srmukul.com/" target="_blank" rel="noopener noreferrer">
             <span className="footer__author">Md. Samiur Rahman (Mukul).</span>
-          </a>
+          </a>{" "}
           All rights reserved.
         </p>
       </footer>

@@ -1,5 +1,6 @@
 import { lib } from "mukul-react-hooks";
 import { useState } from "react";
+import { v4 } from "uuid";
 
 export default function UnixToDateTimeTest() {
   const [unixTimestamp, setUnixTimestamp] = useState(Math.floor(Date.now() / 1000));
@@ -25,8 +26,9 @@ export default function UnixToDateTimeTest() {
       <div className="test-section">
         <h3>Timestamp Converter</h3>
         <div className="form-group">
-          <label>Unix Timestamp:</label>
+          <label htmlFor="unixTimestamp">Unix Timestamp:</label>
           <input
+            id="unixTimestamp"
             type="number"
             value={unixTimestamp}
             onChange={(e) => setUnixTimestamp(Number(e.target.value))}
@@ -50,8 +52,8 @@ export default function UnixToDateTimeTest() {
       <div className="test-section">
         <h3>Common Timestamps</h3>
         <div className="grid">
-          {commonTimestamps.map((item, index) => (
-            <div key={index} className="result-box">
+          {commonTimestamps.map((item) => (
+            <div key={v4()} className="result-box">
               <h4>{item.name}</h4>
               <p>
                 <strong>Timestamp:</strong> {item.value}

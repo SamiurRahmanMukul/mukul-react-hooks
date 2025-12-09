@@ -1,5 +1,6 @@
 import { lib } from "mukul-react-hooks";
 import { useState } from "react";
+import { v4 } from "uuid";
 
 export default function DownloadStringTest() {
   const [data, setData] = useState("Hello, World! This is a test file.");
@@ -91,7 +92,7 @@ export default function DownloadStringTest() {
     const k = 1024;
     const sizes = ["Bytes", "KB", "MB", "GB"];
     const i = Math.floor(Math.log(bytes) / Math.log(k));
-    return parseFloat((bytes / Math.pow(k, i)).toFixed(2)) + " " + sizes[i];
+    return Number.parseFloat((bytes / Math.pow(k, i)).toFixed(2)) + " " + sizes[i];
   };
 
   return (
@@ -187,8 +188,8 @@ export default function DownloadStringTest() {
       <div className="test-section">
         <h3>Preset Downloads</h3>
         <div className="grid">
-          {downloadPresets.map((preset, index) => (
-            <div key={index} className="result-box">
+          {downloadPresets.map((preset) => (
+            <div key={v4()} className="result-box">
               <h4>{preset.name}</h4>
               <p>
                 <strong>File:</strong> {preset.filename}.{preset.extension}
@@ -268,7 +269,7 @@ lib.downloadString(data, filename, extension);`}
               fontSize: "0.875rem",
             }}
           >
-            {`// Export JSON data
+            {String.raw`// Export JSON data
 const exportData = (userData) => {
   const jsonData = JSON.stringify(userData, null, 2);
   lib.downloadString(jsonData, 'user-data', 'json');
@@ -276,7 +277,7 @@ const exportData = (userData) => {
 
 // Export CSV report
 const exportCSV = (tableData) => {
-  const csvContent = tableData.map(row => row.join(',')).join('\\n');
+  const csvContent = tableData.map(row => row.join(',')).join('\n');
   lib.downloadString(csvContent, 'report', 'csv');
 };
 
@@ -293,7 +294,7 @@ const exportConfig = (settings) => {
 
 // Download log files
 const downloadLogs = (logEntries) => {
-  const logContent = logEntries.join('\\n');
+  const logContent = logEntries.join('\n');
   lib.downloadString(logContent, 'application-logs', 'log');
 };
 
@@ -370,9 +371,9 @@ const exportCode = (codeContent, language) => {
               <p>
                 <strong>Recent Downloads:</strong>
               </p>
-              {downloadHistory.map((download, index) => (
+              {downloadHistory.map((download) => (
                 <div
-                  key={index}
+                  key={v4()}
                   style={{
                     padding: "0.5rem",
                     margin: "0.25rem 0",

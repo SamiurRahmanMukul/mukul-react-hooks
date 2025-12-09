@@ -1,5 +1,6 @@
 import { lib } from "mukul-react-hooks";
 import { useState } from "react";
+import { v4 } from "uuid";
 
 export default function AsyncDelayTest() {
   const [delay, setDelay] = useState(2000);
@@ -340,9 +341,9 @@ try {
             </p>
           ) : (
             <div style={{ maxHeight: "300px", overflowY: "auto" }}>
-              {logs.map((log, index) => (
+              {logs.map((log) => (
                 <div
-                  key={index}
+                  key={v4()}
                   style={{
                     padding: "0.25rem",
                     borderBottom: "1px solid #555",

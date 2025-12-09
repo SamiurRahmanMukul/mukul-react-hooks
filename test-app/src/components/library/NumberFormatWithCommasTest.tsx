@@ -1,5 +1,6 @@
 import { lib } from "mukul-react-hooks";
 import { useState } from "react";
+import { v4 } from "uuid";
 
 export default function NumberFormatWithCommasTest() {
   const [inputNumber, setInputNumber] = useState("1234567.89");
@@ -118,10 +119,10 @@ return <span>Market Cap: $&#123;marketCap&#125;</span>`,
       <div className="test-section">
         <h3>Quick Number Tests</h3>
         <div className="grid">
-          {quickNumbers.map((num, index) => {
+          {quickNumbers.map((num) => {
             const formatted = lib.numberFormatWithCommas(num);
             return (
-              <div key={index} className="result-box">
+              <div key={v4()} className="result-box">
                 <h4>{num.toLocaleString()}</h4>
                 <p>
                   <strong>Input:</strong> {num}
@@ -157,10 +158,10 @@ return <span>Market Cap: $&#123;marketCap&#125;</span>`,
         </div>
 
         <div className="grid">
-          {testCases.map((testCase, index) => {
+          {testCases.map((testCase) => {
             const result = lib.numberFormatWithCommas(testCase.input);
             return (
-              <div key={index} className="result-box">
+              <div key={v4()} className="result-box">
                 <h4>{testCase.description}</h4>
                 <p>
                   <strong>Category:</strong> {testCase.category}
@@ -261,8 +262,8 @@ const formattedViews = lib.numberFormatWithCommas(views);
       <div className="test-section">
         <h3>Real-world Use Cases</h3>
         <div className="grid">
-          {realWorldExamples.map((example, index) => (
-            <div key={index} className="result-box">
+          {realWorldExamples.map((example) => (
+            <div key={v4()} className="result-box">
               <h4>{example.title}</h4>
               <p>{example.description}</p>
               <pre
@@ -294,9 +295,9 @@ const formattedViews = lib.numberFormatWithCommas(views);
               <p>
                 <strong>Recent Formatting Operations:</strong>
               </p>
-              {formatHistory.map((format, index) => (
+              {formatHistory.map((format) => (
                 <div
-                  key={index}
+                  key={v4()}
                   style={{
                     padding: "0.5rem",
                     margin: "0.25rem 0",

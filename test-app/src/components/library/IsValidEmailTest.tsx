@@ -1,5 +1,6 @@
 import { lib } from "mukul-react-hooks";
 import { useState } from "react";
+import { v4 } from "uuid";
 
 export default function IsValidEmailTest() {
   const [email, setEmail] = useState("test@example.com");
@@ -142,12 +143,12 @@ if (!isValid) {
         </div>
 
         <div className="grid">
-          {testCases.map((testCase, index) => {
+          {testCases.map((testCase) => {
             const actualResult = lib.isValidEmail(testCase.email);
             const isCorrect = actualResult === testCase.expected;
 
             return (
-              <div key={index} className="result-box">
+              <div key={v4()} className="result-box">
                 <h4>{testCase.category}</h4>
                 <p>
                   <strong>Email:</strong> <code>{testCase.email || "<empty>"}</code>
@@ -189,9 +190,9 @@ if (!isValid) {
               <p>
                 <strong>Recent Validations:</strong>
               </p>
-              {validationHistory.map((validation, index) => (
+              {validationHistory.map((validation) => (
                 <div
-                  key={index}
+                  key={v4()}
                   style={{
                     padding: "0.5rem",
                     margin: "0.25rem 0",
@@ -333,8 +334,8 @@ const getValidEmails = (emailList) => {
       <div className="test-section">
         <h3>Real-world Use Cases</h3>
         <div className="grid">
-          {realWorldExamples.map((example, index) => (
-            <div key={index} className="result-box">
+          {realWorldExamples.map((example) => (
+            <div key={v4()} className="result-box">
               <h4>{example.title}</h4>
               <p>{example.description}</p>
               <pre

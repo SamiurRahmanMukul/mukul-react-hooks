@@ -1,5 +1,6 @@
 import { lib } from "mukul-react-hooks";
 import { useState } from "react";
+import { v4 } from "uuid";
 
 export default function GenerateUniqueIdTest() {
   const [generatedIds, setGeneratedIds] = useState<string[]>([]);
@@ -278,8 +279,8 @@ const createSession = () => ({
       <div className="test-section">
         <h3>Real-world Use Cases</h3>
         <div className="grid">
-          {useCaseExamples.map((useCase, index) => (
-            <div key={index} className="result-box">
+          {useCaseExamples.map((useCase) => (
+            <div key={v4()} className="result-box">
               <h4>{useCase.title}</h4>
               <p>{useCase.description}</p>
               <div className="demo-output">
@@ -314,7 +315,7 @@ const createSession = () => ({
               </p>
               {generatedIds.map((id, index) => (
                 <div
-                  key={index}
+                  key={v4()}
                   style={{
                     padding: "0.5rem",
                     margin: "0.25rem 0",

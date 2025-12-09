@@ -17,12 +17,21 @@ export default function InternationalCurrencyConvertTest() {
       <div className="test-section">
         <h3>Currency Converter</h3>
         <div className="form-group">
-          <label>Amount:</label>
-          <input type="number" value={amount} onChange={(e) => setAmount(Number(e.target.value))} />
+          <label htmlFor="amount">Amount:</label>
+          <input
+            id="amount"
+            type="number"
+            value={amount}
+            onChange={(e) => setAmount(Number(e.target.value))}
+          />
         </div>
         <div className="form-group">
-          <label>From Currency:</label>
-          <select value={fromCurrency} onChange={(e) => setFromCurrency(e.target.value)}>
+          <label htmlFor="fromCurrency">From Currency:</label>
+          <select
+            id="fromCurrency"
+            value={fromCurrency}
+            onChange={(e) => setFromCurrency(e.target.value)}
+          >
             <option value="USD">USD</option>
             <option value="EUR">EUR</option>
             <option value="GBP">GBP</option>
@@ -30,8 +39,12 @@ export default function InternationalCurrencyConvertTest() {
           </select>
         </div>
         <div className="form-group">
-          <label>To Currency:</label>
-          <select value={toCurrency} onChange={(e) => setToCurrency(e.target.value)}>
+          <label htmlFor="toCurrency">To Currency:</label>
+          <select
+            id="toCurrency"
+            value={toCurrency}
+            onChange={(e) => setToCurrency(e.target.value)}
+          >
             <option value="EUR">EUR</option>
             <option value="USD">USD</option>
             <option value="GBP">GBP</option>

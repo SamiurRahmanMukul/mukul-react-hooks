@@ -21,7 +21,7 @@ export default function IsEmptyObjectTest() {
   };
 
   const currentObject = parseInput();
-  const result = lib.isEmptyObject(currentObject as any);
+  const result = lib.isEmptyObject(currentObject);
 
   return (
     <div>
@@ -34,8 +34,9 @@ export default function IsEmptyObjectTest() {
       <div className="test-section">
         <h3>Object Tester</h3>
         <div className="form-group">
-          <label>Enter JSON object:</label>
+          <label htmlFor="jsonInput">Enter JSON object:</label>
           <textarea
+            id="jsonInput"
             value={jsonInput}
             onChange={(e) => setJsonInput(e.target.value)}
             placeholder='{"key": "value"}'
@@ -59,12 +60,12 @@ export default function IsEmptyObjectTest() {
       <div className="test-section">
         <h3>Test Cases</h3>
         <div className="grid">
-          {testObjects.map((test, index) => {
+          {testObjects.map((test) => {
             const testResult = lib.isEmptyObject(test.obj as any);
             const isCorrect = testResult === test.expected;
 
             return (
-              <div key={index} className="result-box">
+              <div key={test.name} className="result-box">
                 <h4>{test.name}</h4>
                 <p>
                   <strong>Object:</strong> {JSON.stringify(test.obj)}

@@ -4,7 +4,7 @@
  * @returns {string} The transformed string with underscores and lowercase.
  */
 export default function transformString(inputString: string): string {
-  const stringWithUnderscores = inputString.replace(/\s+/g, "_");
+  const stringWithUnderscores = inputString.split(/\s+/).join("_");
   const transformedString = stringWithUnderscores.toLowerCase();
   return transformedString;
 }

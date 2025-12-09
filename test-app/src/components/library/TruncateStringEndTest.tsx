@@ -20,8 +20,9 @@ export default function TruncateStringEndTest() {
       <div className="test-section">
         <h3>String Truncator</h3>
         <div className="form-group">
-          <label>Input String:</label>
+          <label htmlFor="truncateInput">Input String:</label>
           <textarea
+            id="truncateInput"
             value={inputString}
             onChange={(e) => setInputString(e.target.value)}
             placeholder="Enter a long string to truncate"
@@ -29,8 +30,9 @@ export default function TruncateStringEndTest() {
           />
         </div>
         <div className="form-group">
-          <label>Max Length:</label>
+          <label htmlFor="maxLength">Max Length:</label>
           <input
+            id="maxLength"
             type="number"
             value={maxLength}
             onChange={(e) => setMaxLength(Number(e.target.value))}

@@ -9,16 +9,16 @@ function useMediaQuery(query: string): boolean {
   const [matches, setMatches] = useState<boolean>(false);
 
   useEffect(() => {
-    const media = window.matchMedia(query);
+    const media = globalThis.matchMedia(query);
 
     if (media.matches !== matches) {
       setMatches(media.matches);
     }
 
     const listener = (): void => setMatches(media.matches);
-    window.addEventListener("resize", listener);
+    globalThis.addEventListener("resize", listener);
 
-    return () => window.removeEventListener("resize", listener);
+    return () => globalThis.removeEventListener("resize", listener);
   }, [matches, query]);
 
   return matches;

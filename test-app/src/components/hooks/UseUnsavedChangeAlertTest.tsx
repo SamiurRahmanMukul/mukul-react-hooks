@@ -159,7 +159,7 @@ export default function UseUnsavedChangeAlertTest() {
                 onChange={(e) => handleInputChange("preferences.newsletter", e.target.checked)}
                 style={{ marginRight: "0.5rem" }}
               />
-              Subscribe to newsletter
+              <span>Subscribe to newsletter</span>
             </label>
           </div>
 
@@ -171,7 +171,7 @@ export default function UseUnsavedChangeAlertTest() {
                 onChange={(e) => handleInputChange("preferences.notifications", e.target.checked)}
                 style={{ marginRight: "0.5rem" }}
               />
-              Enable notifications
+              <span>Enable notifications</span>
             </label>
           </div>
         </div>

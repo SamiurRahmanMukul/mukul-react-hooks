@@ -14,8 +14,9 @@ export default function TransformStringTest() {
       <div className="test-section">
         <h3>String Transformer</h3>
         <div className="form-group">
-          <label>Input String:</label>
+          <label htmlFor="inputString">Input String:</label>
           <input
+            id="inputString"
             type="text"
             value={inputString}
             onChange={(e) => setInputString(e.target.value)}

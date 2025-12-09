@@ -1,5 +1,6 @@
 import { lib } from "mukul-react-hooks";
 import { useState } from "react";
+import { v4 } from "uuid";
 
 export default function RandomColorTest() {
   const [currentColor, setCurrentColor] = useState("#FF5733");
@@ -30,16 +31,16 @@ export default function RandomColorTest() {
   };
 
   const hexToRgb = (hex: string) => {
-    const r = parseInt(hex.slice(1, 3), 16);
-    const g = parseInt(hex.slice(3, 5), 16);
-    const b = parseInt(hex.slice(5, 7), 16);
+    const r = Number.parseInt(hex.slice(1, 3), 16);
+    const g = Number.parseInt(hex.slice(3, 5), 16);
+    const b = Number.parseInt(hex.slice(5, 7), 16);
     return `rgb(${r}, ${g}, ${b})`;
   };
 
   const hexToHsl = (hex: string) => {
-    const r = parseInt(hex.slice(1, 3), 16) / 255;
-    const g = parseInt(hex.slice(3, 5), 16) / 255;
-    const b = parseInt(hex.slice(5, 7), 16) / 255;
+    const r = Number.parseInt(hex.slice(1, 3), 16) / 255;
+    const g = Number.parseInt(hex.slice(3, 5), 16) / 255;
+    const b = Number.parseInt(hex.slice(5, 7), 16) / 255;
 
     const max = Math.max(r, g, b);
     const min = Math.min(r, g, b);
@@ -68,9 +69,9 @@ export default function RandomColorTest() {
   };
 
   const getLuminance = (hex: string) => {
-    const r = parseInt(hex.slice(1, 3), 16) / 255;
-    const g = parseInt(hex.slice(3, 5), 16) / 255;
-    const b = parseInt(hex.slice(5, 7), 16) / 255;
+    const r = Number.parseInt(hex.slice(1, 3), 16) / 255;
+    const g = Number.parseInt(hex.slice(3, 5), 16) / 255;
+    const b = Number.parseInt(hex.slice(5, 7), 16) / 255;
 
     // Apply gamma correction
     const rsRGB = r <= 0.03928 ? r / 12.92 : Math.pow((r + 0.055) / 1.055, 2.4);
@@ -139,7 +140,8 @@ setTheme({ primary: themeColor })`,
               flexWrap: "wrap",
             }}
           >
-            <div
+            <button
+              type="button"
               className="color-preview"
               style={{
                 backgroundColor: currentColor,
@@ -151,12 +153,15 @@ setTheme({ primary: themeColor })`,
                 color: getTextColor(currentColor),
                 fontWeight: "bold",
                 cursor: "pointer",
+                border: "none",
+                borderRadius: "4px",
               }}
               onClick={() => copyToClipboard(currentColor)}
               title="Click to copy"
+              aria-label={`Copy ${currentColor} to clipboard`}
             >
               {currentColor}
-            </div>
+            </button>
             <div style={{ textAlign: "left" }}>
               <p>
                 <strong>Hex:</strong> {currentColor}
@@ -214,9 +219,10 @@ setTheme({ primary: themeColor })`,
                 marginTop: "1rem",
               }}
             >
-              {palette.map((color, index) => (
-                <div
-                  key={index}
+              {palette.map((color) => (
+                <button
+                  type="button"
+                  key={v4()}
                   style={{
                     backgroundColor: color,
                     padding: "1rem 0.5rem",
@@ -226,12 +232,14 @@ setTheme({ primary: themeColor })`,
                     cursor: "pointer",
                     fontSize: "0.875rem",
                     fontWeight: "bold",
+                    border: "none",
                   }}
                   onClick={() => copyToClipboard(color)}
                   title="Click to copy"
+                  aria-label={`Copy ${color} to clipboard`}
                 >
                   {color}
-                </div>
+                </button>
               ))}
             </div>
           </div>
@@ -340,8 +348,8 @@ const generatePalette = (count) => {
       <div className="test-section">
         <h3>Real-world Use Cases</h3>
         <div className="grid">
-          {realWorldExamples.map((example, index) => (
-            <div key={index} className="result-box">
+          {realWorldExamples.map((example) => (
+            <div key={example.title} className="result-box">
               <h4>{example.title}</h4>
               <p>{example.description}</p>
               <pre
@@ -396,9 +404,10 @@ const generatePalette = (count) => {
                   marginTop: "1rem",
                 }}
               >
-                {colorHistory.map((color, index) => (
-                  <div
-                    key={index}
+                {colorHistory.map((color) => (
+                  <button
+                    type="button"
+                    key={color}
                     style={{
                       backgroundColor: color,
                       padding: "0.75rem 0.25rem",
@@ -409,18 +418,19 @@ const generatePalette = (count) => {
                       fontSize: "0.75rem",
                       fontWeight: "bold",
                       border: color === currentColor ? "2px solid #646cff" : "none",
+                      borderWidth: "2px",
+                      borderStyle: color === currentColor ? "solid" : "none",
+                      borderColor: color === currentColor ? "#646cff" : "transparent",
                     }}
                     onClick={() => {
                       setCurrentColor(color);
                       copyToClipboard(color);
                     }}
                     title="Click to select and copy"
+                    aria-label={`Select and copy ${color}`}
                   >
                     {color}
-                    {index === 0 && (
-                      <div style={{ fontSize: "0.6rem", marginTop: "0.25rem" }}>Latest</div>
-                    )}
-                  </div>
+                  </button>
                 ))}
               </div>
             </div>
